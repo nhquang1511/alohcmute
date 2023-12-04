@@ -81,10 +81,13 @@ public class UserController extends HttpServlet {
 		}
 
 		else if (url.contains("updateuser")) {
-
+//-------------------------------------lay anh tu form--------------
 			Part filePart = req.getPart("file");
 			String fileName = filePart.getSubmittedFileName();
 			String urlvartar = uploadCloud.upload(fileName);
+//--------------------------------------------------------
+			
+			
 			HttpSession session = req.getSession();
 			int userID = (int) session.getAttribute("userID");
 			User user = userService.findById(userID);
