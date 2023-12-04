@@ -135,16 +135,17 @@ public class UserDaoImple implements IUserDao{
 
 	@Override
 	public List<User> findByUsername(String username) {
-		EntityManager enma = JPAConfig.getEntityManager();
+	    EntityManager entityManager = JPAConfig.getEntityManager();
 
-		String jpql = "SELECT c FROM Category c WHERE c.catename like :catname";
+	    String jpql = "SELECT u FROM User u WHERE u.userName LIKE :userName";
 
-		TypedQuery<User> query = enma.createQuery(jpql, User.class);
+	    TypedQuery<User> query = entityManager.createQuery(jpql, User.class);
 
-		query.setParameter("catename", "%" + username + "%");
+	    query.setParameter("username", "%" + username + "%");
 
-		return query.getResultList();
+	    return query.getResultList();
 	}
+
 
 	@Override
 	public List<User> findAll(int page, int pagesize) {
