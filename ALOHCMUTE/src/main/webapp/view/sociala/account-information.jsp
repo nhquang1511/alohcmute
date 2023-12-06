@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +30,7 @@
 		<!-- navigation top-->
 		<div class="nav-header bg-white shadow-xs border-0">
 			<div class="nav-top">
-				<a href="index.html"><i
+				<a href="/ALOHCMUTE/home"><i
 					class="feather-zap text-success display1-size me-2 ms-0"></i><span
 					class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala.
 				</span> </a> <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"><i
@@ -340,7 +340,8 @@
 									<div class="row">
 										<div class="col-lg-6 mb-3">
 											<div class="form-group">
-												<label class="mont-font fw-600 font-xsss">name</label> <input
+												<label class="mont-font fw-600 font-xsss">name</label> 
+												<input
 													type="text" name="name1" class="form-control">
 											</div>
 										</div>

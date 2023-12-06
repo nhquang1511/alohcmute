@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from uitheme.net/sociala/default-settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2023 14:44:18 GMT -->
+<!-- Mirrored from uitheme.net/sociala/default-message.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2023 14:44:23 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +29,7 @@
         <!-- navigation top-->
         <div class="nav-header bg-white shadow-xs border-0">
             <div class="nav-top">
-                <a href="index.html"><i class="feather-zap text-success display1-size me-2 ms-0"></i><span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala. </span> </a>
+                <a href="/ALOHCMUTE/home"><i class="feather-zap text-success display1-size me-2 ms-0"></i><span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala. </span> </a>
                 <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"><i class="feather-message-circle text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
                 <a href="default-video.html" class="mob-menu me-2"><i class="feather-video text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
                 <a href="#" class="me-2 menu-search-icon mob-menu"><i class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
@@ -223,44 +223,114 @@
         </nav>
         <!-- navigation left -->
         <!-- main content -->
-        <div class="main-content bg-lightblue theme-dark-bg right-chat-active">
+        <div class="main-content right-chat-active">
             
             <div class="middle-sidebar-bottom">
-                <div class="middle-sidebar-left">
-                    <div class="middle-wrap">
-                        <div class="card w-100 border-0 bg-white shadow-xs p-0 mb-4">
-                            
-                            <div class="card-body p-lg-5 p-4 w-100 border-0">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <h4 class="mb-4 font-xxl fw-700 mont-font mb-lg-5 mb-4 font-md-xs">Settings</h4>
-                                        <div class="nav-caption fw-600 font-xssss text-grey-500 mb-2">Genaral</div>
-                                        <ul class="list-inline mb-4">
-                                            <li class="list-inline-item d-block border-bottom me-0"><a href="account-information.jsp" class="pt-2 pb-2 d-flex align-items-center"><i class="btn-round-md bg-primary-gradiant text-white feather-home font-md me-3"></i> <h4 class="fw-600 font-xsss mb-0 mt-0">Acount Information</h4><i class="ti-angle-right font-xsss text-grey-500 ms-auto mt-3"></i></a></li>
-                                            <li class="list-inline-item d-block border-bottom me-0"><a href="contact-information.html" class="pt-2 pb-2 d-flex align-items-center"><i class="btn-round-md bg-gold-gradiant text-white feather-map-pin font-md me-3"></i> <h4 class="fw-600 font-xsss mb-0 mt-0">Saved Address</h4><i class="ti-angle-right font-xsss text-grey-500 ms-auto mt-3"></i></a></li>
-                                            <li class="list-inline-item d-block me-0"><a href="social.html" class="pt-2 pb-2 d-flex align-items-center"><i class="btn-round-md bg-red-gradiant text-white feather-twitter font-md me-3"></i> <h4 class="fw-600 font-xsss mb-0 mt-0">Social Acount</h4><i class="ti-angle-right font-xsss text-grey-500 ms-auto mt-3"></i></a></li>
-                                        </ul>
+                <div class="middle-sidebar-left pe-0 ps-lg-3 ms-0 me-0" style="max-width: 100%;">
+                    <div class="row">
+                           
 
-                                        <div class="nav-caption fw-600 font-xsss text-grey-500 mb-2">Acount</div>
-                                        <ul class="list-inline mb-4">
-                                            <li class="list-inline-item d-block border-bottom me-0"><a href="payment.html" class="pt-2 pb-2 d-flex align-items-center"><i class="btn-round-md bg-mini-gradiant text-white feather-credit-card font-md me-3"></i> <h4 class="fw-600 font-xsss mb-0 mt-0">My Cards</h4><i class="ti-angle-right font-xsss text-grey-500 ms-auto mt-3"></i></a></li>
-                                            <li class="list-inline-item d-block  me-0"><a href="password.html" class="pt-2 pb-2 d-flex align-items-center"><i class="btn-round-md bg-blue-gradiant text-white feather-inbox font-md me-3"></i> <h4 class="fw-600 font-xsss mb-0 mt-0">Password</h4><i class="ti-angle-right font-xsss text-grey-500 ms-auto mt-3"></i></a></li>
-                                            
-                                        </ul>
+                        <div class="col-lg-12 position-relative">
+                            <div class="chat-wrapper pt-0 w-100 position-relative scroll-bar bg-white theme-dark-bg">
+                                <div class="chat-body p-3 ">
+                                    <div class="messages-content pb-5">
+                                        <div class="message-item">
+                                            <div class="message-user">
+                                                <figure class="avatar">
+                                                    <img src="images/user-9.png" alt="image">
+                                                </figure>
+                                                <div>
+                                                    <h5>Byrom Guittet</h5>
+                                                    <div class="time">01:35 PM</div>
+                                                </div>
+                                            </div>
+                                            <div class="message-wrap">I'm fine, how are you 😃</div>
+                                        </div>
 
-                                        <div class="nav-caption fw-600 font-xsss text-grey-500 mb-2">Other</div>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item d-block border-bottom me-0"><a href="default-notification.html" class="pt-2 pb-2 d-flex align-items-center"><i class="btn-round-md bg-gold-gradiant text-white feather-bell font-md me-3"></i> <h4 class="fw-600 font-xsss mb-0 mt-0">Notification</h4><i class="ti-angle-right font-xsss text-grey-500 ms-auto mt-3"></i></a></li>
-                                            <li class="list-inline-item d-block border-bottom me-0"><a href="help-box.html" class="pt-2 pb-2 d-flex align-items-center"><i class="btn-round-md bg-primary-gradiant text-white feather-help-circle font-md me-3"></i> <h4 class="fw-600 font-xsss mb-0 mt-0">Help</h4><i class="ti-angle-right font-xsss text-grey-500 ms-auto mt-3"></i></a></li>
-                                            <li class="list-inline-item d-block me-0"><a href="/ALOHCMUTE/login" class="pt-2 pb-2 d-flex align-items-center"><i class="btn-round-md bg-red-gradiant text-white feather-lock font-md me-3"></i> <h4 class="fw-600 font-xsss mb-0 mt-0">Logout</h4><i class="ti-angle-right font-xsss text-grey-500 ms-auto mt-3"></i></a></li>
+                                        <div class="message-item outgoing-message">
+                                            <div class="message-user">
+                                                <figure class="avatar">
+                                                    <img src="images/user-1.png" alt="image">
+                                                </figure>
+                                                <div>
+                                                    <h5>Byrom Guittet</h5>
+                                                    <div class="time">01:35 PM<i class="ti-double-check text-info"></i></div>
+                                                </div>
+                                            </div>
+                                            <div class="message-wrap">I want those files for you. I want you to send 1 PDF and 1 image file.</div>
+                                        </div>
+
+                                        <div class="message-item">
+                                            <div class="message-user">
+                                                <figure class="avatar">
+                                                    <img src="images/user-9.png" alt="image">
+                                                </figure>
+                                                <div>
+                                                    <h5>Byrom Guittet</h5>
+                                                    <div class="time">01:35 PM</div>
+                                                </div>
+                                            </div>
+                                            <div class="message-wrap">I've found some cool photos for our travel app.</div>
+                                        </div>
+
+                                        <div class="message-item outgoing-message">
+                                            <div class="message-user">
+                                                <figure class="avatar">
+                                                    <img src="images/user-1.png" alt="image">
+                                                </figure>
+                                                <div>
+                                                    <h5>Byrom Guittet</h5>
+                                                    <div class="time">01:35 PM<i class="ti-double-check text-info"></i></div>
+                                                </div>
+                                            </div>
+                                            <div class="message-wrap">Hey mate! How are things going ?</div>
+                                        </div>
+
+                                        <div class="message-item">
+                                            <div class="message-user">
+                                                <figure class="avatar">
+                                                    <img src="images/user-9.png" alt="image">
+                                                </figure>
+                                                <div>
+                                                    <h5>Byrom Guittet</h5>
+                                                    <div class="time">01:35 PM</div>
+                                                </div>
+                                            </div>
+                                            <figure>
+                                                <img src="images/bb-9.jpg" class="w-25 img-fluid rounded-3" alt="image">
+                                            </figure>
                                             
-                                        </ul>
+                                        
+                                        </div>
+
+                                        <div class="message-item outgoing-message">
+                                            <div class="message-user">
+                                                <figure class="avatar">
+                                                    <img src="images/user-1.png" alt="image">
+                                                </figure>
+                                                <div>
+                                                    <h5>Byrom Guittet</h5>
+                                                    <div class="time">01:35 PM<i class="ti-double-check text-info"></i></div>
+                                                </div>
+                                            </div>
+                                            <div class="message-wrap" style="margin-bottom: 90px;">Hey mate! How are things going ?</div>
+
+                                        </div>
+                                        <div class="clearfix"></div>
+
+
                                     </div>
                                 </div>
-
-
                             </div>
+                            <div class="chat-bottom dark-bg p-3 shadow-none theme-dark-bg" style="width: 98%;">
+                                <form class="chat-form">
+                                    <button class="bg-grey float-left"><i class="ti-microphone text-grey-600"></i></button>
+                                    <div class="form-group"><input type="text" placeholder="Start typing.."></div>          
+                                    <button class="bg-current"><i class="ti-arrow-right text-white"></i></button>
+                                </form>
+                            </div> 
                         </div>
+
                     </div>
                 </div>
                  
@@ -268,7 +338,6 @@
         </div>
         <!-- main content -->
 
-        <!-- right chat -->
         <!-- right chat -->
         <div class="right-chat nav-wrap mt-2 right-scroll-bar">
             <div class="middle-sidebar-right-content bg-white shadow-xss rounded-xxl">
@@ -462,6 +531,56 @@
 
     </div> 
 
+    <div class="modal bottom side fade" id="Modalstries" tabindex="-1" role="dialog" style=" overflow-y: auto;">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0 bg-transparent">
+                <button type="button" class="close mt-0 position-absolute top--30 right--10" data-dismiss="modal" aria-label="Close"><i class="ti-close text-white font-xssss"></i></button>
+                <div class="modal-body p-0">
+                    <div class="card w-100 border-0 rounded-3 overflow-hidden bg-gradiant-bottom bg-gradiant-top">
+                        <div class="owl-carousel owl-theme dot-style3 story-slider owl-dot-nav nav-none">
+                            <div class="item"><img src="images/story-5.jpg" alt="image"></div>
+                            <div class="item"><img src="images/story-6.jpg" alt="image"></div>
+                            <div class="item"><img src="images/story-7.jpg" alt="image"></div>
+                            <div class="item"><img src="images/story-8.jpg" alt="image"></div>
+                            
+                        </div>
+                    </div>
+                    <div class="form-group mt-3 mb-0 p-3 position-absolute bottom-0 z-index-1 w-100">
+                        <input type="text" class="style2-input w-100 bg-transparent border-light-md p-3 pe-5 font-xssss fw-500 text-white" value="Write Comments">               
+                        <span class="feather-send text-white font-md text-white position-absolute" style="bottom: 35px;right:30px;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-popup-chat">
+        <div class="modal-popup-wrap bg-white p-0 shadow-lg rounded-3">
+            <div class="modal-popup-header w-100 border-bottom">
+                <div class="card p-3 d-block border-0 d-block">
+                    <figure class="avatar mb-0 float-left me-2">
+                        <img src="images/user-12.png" alt="image" class="w35 me-1">
+                    </figure>
+                    <h5 class="fw-700 text-primary font-xssss mt-1 mb-1">Hendrix Stamp</h5>
+                    <h4 class="text-grey-500 font-xsssss mt-0 mb-0"><span class="d-inline-block bg-success btn-round-xss m-0"></span> Available</h4>
+                    <a href="#" class="font-xssss position-absolute right-0 top-0 mt-3 me-4"><i class="ti-close text-grey-900 mt-2 d-inline-block"></i></a>
+                </div>
+            </div>
+            <div class="modal-popup-body w-100 p-3 h-auto">
+                <div class="message"><div class="message-content font-xssss lh-24 fw-500">Hi, how can I help you?</div></div>
+                <div class="date-break font-xsssss lh-24 fw-500 text-grey-500 mt-2 mb-2">Mon 10:20am</div>
+                <div class="message self text-right mt-2"><div class="message-content font-xssss lh-24 fw-500">I want those files for you. I want you to send 1 PDF and 1 image file.</div></div>
+                <div class="snippet pt-3 ps-4 pb-2 pe-3 mt-2 bg-grey rounded-xl float-right" data-title=".dot-typing"><div class="stage"><div class="dot-typing"></div></div></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-popup-footer w-100 border-top">
+                <div class="card p-3 d-block border-0 d-block">
+                    <div class="form-group icon-right-input style1-input mb-0"><input type="text" placeholder="Start typing.." class="form-control rounded-xl bg-greylight border-0 font-xssss fw-500 ps-3"><i class="feather-send text-grey-500 font-md"></i></div>
+                </div>
+            </div>
+        </div> 
+    </div>
+
 
     <script src="js/plugin.js"></script>
     <script src="js/scripts.js"></script>
@@ -469,5 +588,5 @@
 </body>
 
 
-<!-- Mirrored from uitheme.net/sociala/default-settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2023 14:44:18 GMT -->
+<!-- Mirrored from uitheme.net/sociala/default-message.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2023 14:44:23 GMT -->
 </html>
