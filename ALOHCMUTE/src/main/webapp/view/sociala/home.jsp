@@ -542,7 +542,7 @@
 								<h3 class="fw-700 mb-0 mt-0">
 									<a
 										class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
-										href="#" onclick="redirectToHome('${i.userName}')">${i.userName}</a>
+										href="#">${i.userName}</a>
 								</h3> <span class="bg-success ms-auto btn-round-xss"></span>
 							</li>
 						</c:forEach>
@@ -705,8 +705,7 @@
 					<figure class="avatar mb-0 float-left me-2">
 						<img src="images/user-12.png" alt="image" class="w35 me-1">
 					</figure>
-					<h5 class="fw-700 text-primary font-xssss mt-1 mb-1">Hendrix
-						Stamp</h5>
+					<h5 class="fw-700 text-primary font-xssss mt-1 mb-1">ten user</h5>
 					<h4 class="text-grey-500 font-xsssss mt-0 mb-0">
 						<span class="d-inline-block bg-success btn-round-xss m-0"></span>
 						Available
@@ -759,35 +758,6 @@
 
 	<script src="<%=request.getContextPath()%>/view/sociala/js/lightbox.js"></script>
 	<script src="<%=request.getContextPath()%>/view/sociala/js/scripts.js"></script>
-	<script>
-		function redirectToHome(userName) {
-			// Tạo URL mới với tham số name thay đổi
-			var newUrl = "/ALOHCMUTE/home?name=" + encodeURIComponent(userName);
-
-			// Thêm trạng thái mới vào lịch sử duyệt
-			history.pushState({
-				path : newUrl
-			}, '', newUrl);
-
-			// Gọi hàm xử lý khi có sự kiện popstate
-			handlePopState();
-
-			// Ngăn chặn hành vi mặc định của thẻ <a>
-			return false;
-		}
-
-		// Hàm xử lý khi có sự kiện popstate
-		function handlePopState() {
-			// Lấy đường dẫn hiện tại từ trạng thái lịch sử duyệt
-			var currentPath = window.location.pathname + window.location.search;
-
-			// Tại đây, bạn có thể xử lý việc cập nhật nội dung của trang dựa trên đường dẫn mới (currentPath)
-			// Ví dụ: cập nhật nội dung AJAX hoặc thực hiện các thao tác cần thiết
-		}
-
-		// Gắn sự kiện popstate để xử lý khi người dùng thực hiện các thao tác như back/forward trong trình duyệt
-		window.addEventListener('popstate', handlePopState);
-	</script>
 
 
 </body>

@@ -38,6 +38,8 @@ public class PostController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String url = req.getRequestURL().toString();
 		if (url.contains("home")) {
+			
+			
 			findAll(req, resp);
 		} else if (url.contains("updatePost")) {
 			updatePost(req, resp);
@@ -90,14 +92,18 @@ public class PostController extends HttpServlet {
 				listfriend.add(friend.getUser2());
 			}
 		}
+
 		req.setAttribute("listfriend", listfriend);
 		//-------------------------------------------
 		RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/home.jsp");
 		rd.forward(req, resp);
-		for (User element : listfriend) {
-			System.out.println(element.getAvatarURL());
-			System.out.println(element.getEmail());
-		}
+//		for (User element : listfriend) {
+//			System.out.println(element.getAvatarURL());
+//			System.out.println(element.getEmail());
+//		}
+
+
+		
 
 	}
 
