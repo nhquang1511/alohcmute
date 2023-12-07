@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,7 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import entity.Friendship;
 import entity.User;
+import service.FriendshipServicImple;
+import service.IFriendshipService;
 import service.IUserService;
 import service.UserServiceImple;
 import util.uploadCloud;
@@ -26,6 +30,7 @@ public class UserController extends HttpServlet {
 	 * 
 	 */
 	IUserService userService = new UserServiceImple();
+
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -93,6 +98,7 @@ public class UserController extends HttpServlet {
 				session.setAttribute("AvatarURL", loggedInUser.getAvatarURL());
 				session.setAttribute("UserName", loggedInUser.getUserName());
 				session.setAttribute("userEmail", email);
+				
 				resp.sendRedirect("/ALOHCMUTE/home");
 			} else {
 				resp.sendRedirect("/ALOHCMUTE/view/sociala/login.jsp?error=1");

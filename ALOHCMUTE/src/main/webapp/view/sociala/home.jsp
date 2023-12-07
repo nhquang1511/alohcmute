@@ -135,7 +135,8 @@
 						UI Designer is require..</h6>
 				</div>
 			</div>
-			<a href="#" class="p-2 text-center ms-3 menu-icon chat-active-btn"><i
+			<a href="listfriend"
+				class="p-2 text-center ms-3 menu-icon chat-active-btn"><i
 				class="feather-message-square font-xl text-current"></i></a>
 			<div
 				class="p-2 text-center ms-3 position-relative dropdown-menu-icon menu-icon cursor-pointer">
@@ -237,8 +238,9 @@
 			</div>
 
 
-			<a href="/ALOHCMUTE/view/sociala/default-settings.jsp" class="p-0 ms-3 menu-icon"><img
-				src="${sessionScope.AvatarURL}" alt="user" class="w40 mt--1"></a>
+			<a href="/ALOHCMUTE/view/sociala/default-settings.jsp"
+				class="p-0 ms-3 menu-icon"><img src="${sessionScope.AvatarURL}"
+				alt="user" class="w40 mt--1"></a>
 
 		</div>
 		<!-- navigation top -->
@@ -529,102 +531,24 @@
 
 				<div class="section full pe-3 ps-4 pt-4 position-relative feed-body">
 					<h4 class="font-xsssss text-grey-500 text-uppercase fw-700 ls-3">CONTACTS</h4>
+
 					<ul class="list-group list-group-flush">
-						<li
-							class="bg-transparent list-group-item no-icon pe-0 ps-0 pt-2 pb-2 border-0 d-flex align-items-center">
-							<figure class="avatar float-left mb-0 me-2">
-								<img src="images/user-8.png" alt="image" class="w35">
-							</figure>
-							<h3 class="fw-700 mb-0 mt-0">
-								<a
-									class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
-									href="#">Hurin Seary</a>
-							</h3> <span
-							class="badge badge-primary text-white badge-pill fw-500 mt-0">2</span>
-						</li>
-						<li
-							class="bg-transparent list-group-item no-icon pe-0 ps-0 pt-2 pb-2 border-0 d-flex align-items-center">
-							<figure class="avatar float-left mb-0 me-2">
-								<img src="images/user-7.png" alt="image" class="w35">
-							</figure>
-							<h3 class="fw-700 mb-0 mt-0">
-								<a
-									class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
-									href="#">Victor Exrixon</a>
-							</h3> <span class="bg-success ms-auto btn-round-xss"></span>
-						</li>
-						<li
-							class="bg-transparent list-group-item no-icon pe-0 ps-0 pt-2 pb-2 border-0 d-flex align-items-center">
-							<figure class="avatar float-left mb-0 me-2">
-								<img src="images/user-6.png" alt="image" class="w35">
-							</figure>
-							<h3 class="fw-700 mb-0 mt-0">
-								<a
-									class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
-									href="#">Surfiya Zakir</a>
-							</h3> <span class="bg-warning ms-auto btn-round-xss"></span>
-						</li>
-						<li
-							class="bg-transparent list-group-item no-icon pe-0 ps-0 pt-2 pb-2 border-0 d-flex align-items-center">
-							<figure class="avatar float-left mb-0 me-2">
-								<img src="images/user-5.png" alt="image" class="w35">
-							</figure>
-							<h3 class="fw-700 mb-0 mt-0">
-								<a
-									class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
-									href="#">Goria Coast</a>
-							</h3> <span class="bg-success ms-auto btn-round-xss"></span>
-						</li>
-						<li
-							class="bg-transparent list-group-item no-icon pe-0 ps-0 pt-2 pb-2 border-0 d-flex align-items-center">
-							<figure class="avatar float-left mb-0 me-2">
-								<img src="images/user-4.png" alt="image" class="w35">
-							</figure>
-							<h3 class="fw-700 mb-0 mt-0">
-								<a
-									class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
-									href="#">Hurin Seary</a>
-							</h3> <span
-							class="badge mt-0 text-grey-500 badge-pill pe-0 font-xsssss">4:09
-								pm</span>
-						</li>
-						<li
-							class="bg-transparent list-group-item no-icon pe-0 ps-0 pt-2 pb-2 border-0 d-flex align-items-center">
-							<figure class="avatar float-left mb-0 me-2">
-								<img src="images/user-3.png" alt="image" class="w35">
-							</figure>
-							<h3 class="fw-700 mb-0 mt-0">
-								<a
-									class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
-									href="#">David Goria</a>
-							</h3> <span
-							class="badge mt-0 text-grey-500 badge-pill pe-0 font-xsssss">2
-								days</span>
-						</li>
-						<li
-							class="bg-transparent list-group-item no-icon pe-0 ps-0 pt-2 pb-2 border-0 d-flex align-items-center">
-							<figure class="avatar float-left mb-0 me-2">
-								<img src="images/user-2.png" alt="image" class="w35">
-							</figure>
-							<h3 class="fw-700 mb-0 mt-0">
-								<a
-									class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
-									href="#">Seary Victor</a>
-							</h3> <span class="bg-success ms-auto btn-round-xss"></span>
-						</li>
-						<li
-							class="bg-transparent list-group-item no-icon pe-0 ps-0 pt-2 pb-2 border-0 d-flex align-items-center">
-							<figure class="avatar float-left mb-0 me-2">
-								<img src="images/user-12.png" alt="image" class="w35">
-							</figure>
-							<h3 class="fw-700 mb-0 mt-0">
-								<a
-									class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
-									href="#">Ana Seary</a>
-							</h3> <span class="bg-success ms-auto btn-round-xss"></span>
-						</li>
+						<c:forEach var="i" items="${listfriend}">
+							<li
+								class="bg-transparent list-group-item no-icon pe-0 ps-0 pt-2 pb-2 border-0 d-flex align-items-center">
+								<figure class="avatar float-left mb-0 me-2">
+									<img src="${i.avatarURL}" alt="image" class="w35">
+								</figure>
+								<h3 class="fw-700 mb-0 mt-0">
+									<a
+										class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
+										href="#" onclick="redirectToHome('${i.userName}')">${i.userName}</a>
+								</h3> <span class="bg-success ms-auto btn-round-xss"></span>
+							</li>
+						</c:forEach>
 
 					</ul>
+
 				</div>
 				<div
 					class="section full pe-3 ps-4 pt-4 pb-4 position-relative feed-body">
@@ -710,7 +634,8 @@
 				href="default-live-stream.html" class="nav-content-bttn"
 				data-tab="chats"><i class="feather-layout"></i></a> <a
 				href="shop-2.html" class="nav-content-bttn"><i
-				class="feather-layers"></i></a> <a href="/ALOHCMUTE/view/sociala/default-settings.jsp"
+				class="feather-layers"></i></a> <a
+				href="/ALOHCMUTE/view/sociala/default-settings.jsp"
 				class="nav-content-bttn"><img src="images/female-profile.png"
 				alt="user" class="w30 shadow-xss"></a>
 		</div>
@@ -834,6 +759,35 @@
 
 	<script src="<%=request.getContextPath()%>/view/sociala/js/lightbox.js"></script>
 	<script src="<%=request.getContextPath()%>/view/sociala/js/scripts.js"></script>
+	<script>
+		function redirectToHome(userName) {
+			// Tạo URL mới với tham số name thay đổi
+			var newUrl = "/ALOHCMUTE/home?name=" + encodeURIComponent(userName);
+
+			// Thêm trạng thái mới vào lịch sử duyệt
+			history.pushState({
+				path : newUrl
+			}, '', newUrl);
+
+			// Gọi hàm xử lý khi có sự kiện popstate
+			handlePopState();
+
+			// Ngăn chặn hành vi mặc định của thẻ <a>
+			return false;
+		}
+
+		// Hàm xử lý khi có sự kiện popstate
+		function handlePopState() {
+			// Lấy đường dẫn hiện tại từ trạng thái lịch sử duyệt
+			var currentPath = window.location.pathname + window.location.search;
+
+			// Tại đây, bạn có thể xử lý việc cập nhật nội dung của trang dựa trên đường dẫn mới (currentPath)
+			// Ví dụ: cập nhật nội dung AJAX hoặc thực hiện các thao tác cần thiết
+		}
+
+		// Gắn sự kiện popstate để xử lý khi người dùng thực hiện các thao tác như back/forward trong trình duyệt
+		window.addEventListener('popstate', handlePopState);
+	</script>
 
 
 </body>
