@@ -128,7 +128,7 @@ public class PostController extends HttpServlet {
 		if (url.contains("insertPost")) {
 
 			insertPost(req, resp);
-
+			req.getRequestDispatcher("home").forward(req, resp);
 		}
 	}
 }
