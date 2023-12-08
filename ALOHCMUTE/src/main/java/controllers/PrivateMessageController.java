@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -95,6 +96,8 @@ public class PrivateMessageController extends HttpServlet{
 	        message.setUser1(user1);
 	        message.setUser2(user2);
 	        message.setMessageContent(messageContent);
+	        Date currentTime = new Date();
+	        message.setTimestamp(currentTime);
 
 	        // Insert the message into the database
 	        messageService.insert(message);

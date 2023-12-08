@@ -1,6 +1,8 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.*;
 
 
@@ -21,7 +23,11 @@ public class PrivateMessage implements Serializable {
 
 	@Column(name="MessageContent")
 	private String messageContent;
-
+	
+	@Column(name="Timestamp") // Thêm cột timestamp
+    @Temporal(TemporalType.TIMESTAMP) // Định nghĩa kiểu dữ liệu của timestamp
+    private Date timestamp;
+	
 	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="SenderUserID")
@@ -42,7 +48,15 @@ public class PrivateMessage implements Serializable {
 	public void setMessageID(int messageID) {
 		this.messageID = messageID;
 	}
+	
+	public Date getTimestamp() {
+        return this.timestamp;
+    }
 
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+    
 	public String getMessageContent() {
 		return this.messageContent;
 	}
