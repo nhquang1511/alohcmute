@@ -231,7 +231,7 @@
                                                 </figure>
                                                 <div>
                                                     <h5>${i.user1.userName}</h5>
-                                                    <div class="time">01:35 PM</div>
+                                                    <div class="time">${i.timestamp}</div>
                                                 </div>
                                             </div>
                                             <div class="message-wrap">${i.messageContent}</div>

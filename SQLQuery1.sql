@@ -82,9 +82,32 @@ CREATE TABLE PrivateMessage (
     MessageID INT PRIMARY KEY IDENTITY(1,1),
     SenderUserID INT,
     ReceiverUserID INT,
+	Timestamp DATETIME,
     MessageContent nvarchar(255),
     FOREIGN KEY (SenderUserID) REFERENCES Users(UserID) ,
     FOREIGN KEY (ReceiverUserID) REFERENCES Users(UserID)  
 );
+-- Thêm một dòng dữ liệu mới
+INSERT INTO PrivateMessage (SenderUserID, ReceiverUserID, MessageContent)
+VALUES (1, 2, N'a xin chao b');
 
+-- Thêm một dòng dữ liệu khác
+INSERT INTO PrivateMessage (SenderUserID, ReceiverUserID, MessageContent)
+VALUES (2, 1, N'b xin chao a');
+INSERT INTO PrivateMessage (SenderUserID, ReceiverUserID, MessageContent)
+VALUES (1, 2, N'a hoi tham b');
 
+-- Thêm một dòng dữ liệu khác
+INSERT INTO PrivateMessage (SenderUserID, ReceiverUserID, MessageContent)
+VALUES (2, 1, N'b van khoe');
+INSERT INTO PrivateMessage (SenderUserID, ReceiverUserID, MessageContent)
+VALUES (3, 1, N'c van khoe');
+INSERT INTO PrivateMessage (SenderUserID, ReceiverUserID, MessageContent)
+VALUES (3, 1, N'a van khoe');
+INSERT INTO PrivateMessage (SenderUserID, ReceiverUserID, MessageContent)
+VALUES (2, 1, N'a muon di choi vs b k');
+--SELECT * 
+--FROM PrivateMessage
+--WHERE (SenderUserID = 1 AND ReceiverUserID = 2) 
+--   OR (SenderUserID = 2 AND ReceiverUserID = 1)
+--ORDER BY MessageID;

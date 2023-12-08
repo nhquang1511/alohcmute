@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -46,6 +47,7 @@ public class PostController extends HttpServlet {
 		} else if (url.contains("deletePost")) {
 			deletePost(req, resp);
 		}
+		
 	}
 
 	private void deletePost(HttpServletRequest req, HttpServletResponse resp) {

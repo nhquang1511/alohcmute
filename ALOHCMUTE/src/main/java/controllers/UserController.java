@@ -3,6 +3,7 @@ package controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -82,7 +83,8 @@ public class UserController extends HttpServlet {
 		else if (url.contains("login")) {
 			String email = req.getParameter("email");
 			String password = req.getParameter("password");
-
+			
+			
 			List<User> userList = userService.findAll();
 
 			User loggedInUser = null;
