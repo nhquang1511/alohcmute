@@ -6,4 +6,5 @@ import entity.Friendship;
 
 public interface IFriendshipService {
 	List<Friendship>findAll();
+	
 }

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import entity.Friendship;
+import entity.PrivateMessage;
 import entity.User;
 import service.FriendshipServicImple;
 import service.IFriendshipService;

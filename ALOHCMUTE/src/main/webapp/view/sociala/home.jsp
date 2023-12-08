@@ -2,9 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="java.util.List"%>
-<%@ page import="entity.Post"%>
-<%@ page import="entity.User"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -264,7 +262,7 @@
 							<li><a href="default-analytics.html"
 								class="nav-content-bttn open-font h-auto pt-2 pb-2"><i
 									class="font-sm feather-pie-chart me-3 text-grey-500"></i><span>Analytics</span></a></li>
-							<li><a href="default-message.html"
+							<li><a href="chat?userid=${id}"
 								class="nav-content-bttn open-font h-auto pt-2 pb-2"><i
 									class="font-sm feather-message-square me-3 text-grey-500"></i><span>Chat</span><span
 									class="circle-count bg-warning mt-0">23</span></a></li>

@@ -92,8 +92,14 @@ public class PostController extends HttpServlet {
 				listfriend.add(friend.getUser2());
 			}
 		}
-
+		
 		req.setAttribute("listfriend", listfriend);
+		for(User user:listfriend)
+		{
+			int id = user.getUserID();
+			req.setAttribute("id", id);
+			break;
+		}
 		//-------------------------------------------
 		RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/home.jsp");
 		rd.forward(req, resp);

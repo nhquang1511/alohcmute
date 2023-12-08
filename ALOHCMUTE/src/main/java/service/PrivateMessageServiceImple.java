@@ -5,6 +5,7 @@ import java.util.List;
 import DAO.IPrivateMessageDao;
 import DAO.PrivateMessageDaoImple;
 import entity.PrivateMessage;
+import entity.User;
 
 
 public class PrivateMessageServiceImple implements IPrivateMessageService{
@@ -13,7 +14,7 @@ public class PrivateMessageServiceImple implements IPrivateMessageService{
 	@Override
 	public void insert(PrivateMessage message) {
 		// TODO Auto-generated method stub
-		
+		messageDao.insert(message);
 	}
 
 	@Override
@@ -56,6 +57,12 @@ public class PrivateMessageServiceImple implements IPrivateMessageService{
 	public int count() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<PrivateMessage> listMessage(User user1, User user2) {
+		// TODO Auto-generated method stub
+		return messageDao.listMessage(user1, user2);
 	}
 
 }

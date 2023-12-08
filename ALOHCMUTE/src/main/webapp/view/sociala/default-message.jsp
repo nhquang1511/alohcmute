@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,12 +12,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sociala - Social Network App HTML Template </title>
 
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/feather.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/sociala/css/themify-icons.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/sociala/css/feather.css">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="<%=request.getContextPath()%>/view/sociala/image/png" sizes="16x16" href="<%=request.getContextPath()%>/view/sociala/images/favicon.png">
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/sociala/css/style.css">
 
 </head>
 
@@ -29,7 +31,7 @@
         <!-- navigation top-->
         <div class="nav-header bg-white shadow-xs border-0">
             <div class="nav-top">
-                <a href="/ALOHCMUTE/home"><i class="feather-zap text-success display1-size me-2 ms-0"></i><span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala. </span> </a>
+                <a href="index.html"><i class="feather-zap text-success display1-size me-2 ms-0"></i><span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala. </span> </a>
                 <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"><i class="feather-message-circle text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
                 <a href="default-video.html" class="mob-menu me-2"><i class="feather-video text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
                 <a href="#" class="me-2 menu-search-icon mob-menu"><i class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
@@ -188,36 +190,23 @@
         <nav class="navigation scroll-bar">
             <div class="container ps-0 pe-0">
                 <div class="nav-content">
-                    <div class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1 mb-2 mt-2">
-                        <div class="nav-caption fw-600 font-xssss text-grey-500"><span>New </span>Feeds</div>
-                        <ul class="mb-1 top-content">
-                            <li class="logo d-none d-xl-block d-lg-block"></li>
-                            <li><a href="default.html" class="nav-content-bttn open-font" ><i class="feather-tv btn-round-md bg-blue-gradiant me-3"></i><span>Newsfeed</span></a></li>
-                            <li><a href="default-badge.html" class="nav-content-bttn open-font" ><i class="feather-award btn-round-md bg-red-gradiant me-3"></i><span>Badges</span></a></li>
-                            <li><a href="default-storie.html" class="nav-content-bttn open-font" ><i class="feather-globe btn-round-md bg-gold-gradiant me-3"></i><span>Explore Stories</span></a></li>
-                            <li><a href="default-group.html" class="nav-content-bttn open-font" ><i class="feather-zap btn-round-md bg-mini-gradiant me-3"></i><span>Popular Groups</span></a></li>
-                            <li><a href="user-page.html" class="nav-content-bttn open-font"><i class="feather-user btn-round-md bg-primary-gradiant me-3"></i><span>Author Profile </span></a></li>                        
-                        </ul>
-                    </div>
-
-                    <div class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1 mb-2">
-                        <div class="nav-caption fw-600 font-xssss text-grey-500"><span>More </span>Pages</div>
-                        <ul class="mb-3">
-                            <li><a href="default-email-box.html" class="nav-content-bttn open-font"><i class="font-xl text-current feather-inbox me-3"></i><span>Email Box</span><span class="circle-count bg-warning mt-1">584</span></a></li>
-                            <li><a href="default-hotel.html" class="nav-content-bttn open-font"><i class="font-xl text-current feather-home me-3"></i><span>Near Hotel</span></a></li>
-                            <li><a href="default-event.html" class="nav-content-bttn open-font"><i class="font-xl text-current feather-map-pin me-3"></i><span>Latest Event</span></a></li>
-                            <li><a href="default-live-stream.html" class="nav-content-bttn open-font"><i class="font-xl text-current feather-youtube me-3"></i><span>Live Stream</span></a></li>                        
-                        </ul>
-                    </div>
-                    <div class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1">
-                        <div class="nav-caption fw-600 font-xssss text-grey-500"><span></span> Account</div>
-                        <ul class="mb-1">
-                            <li class="logo d-none d-xl-block d-lg-block"></li>
-                            <li><a href="default-settings.html" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i class="font-sm feather-settings me-3 text-grey-500"></i><span>Settings</span></a></li>
-                            <li><a href="default-analytics.html" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i class="font-sm feather-pie-chart me-3 text-grey-500"></i><span>Analytics</span></a></li>
-                            <li><a href="default-message.html" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i class="font-sm feather-message-square me-3 text-grey-500"></i><span>Chat</span><span class="circle-count bg-warning mt-0">23</span></a></li>
-                        </ul>
-                    </div>
+                    <ul class="list-group list-group-flush">
+                    	<c:forEach var="i" items="${listfriend}">
+							<li
+								class="bg-transparent list-group-item no-icon pe-0 ps-0 pt-2 pb-2 border-0 d-flex align-items-center">
+								<figure class="avatar float-left mb-0 me-2">
+									<img src="${i.avatarURL}" alt="image" class="w35">
+								</figure>
+								<h3 class="fw-700 mb-0 mt-0">
+									<a class="font-xssss text-grey-600 d-block text-dark "
+										href="?userid=${i.userID}">${i.userName}</a>
+								</h3> <span class="bg-success ms-auto btn-round-xss"></span>
+							</li>
+						</c:forEach>
+                        
+                    </ul>
+                    
+                    
                 </div>
             </div>
         </nav>
@@ -234,88 +223,29 @@
                             <div class="chat-wrapper pt-0 w-100 position-relative scroll-bar bg-white theme-dark-bg">
                                 <div class="chat-body p-3 ">
                                     <div class="messages-content pb-5">
-                                        <div class="message-item">
+                                    <c:forEach var="i" items="${listmes}">
+                                        <div class="${i.user2.userID eq sessionScope.userID ? 'message-item' : 'message-item outgoing-message'}">
                                             <div class="message-user">
                                                 <figure class="avatar">
                                                     <img src="images/user-9.png" alt="image">
                                                 </figure>
                                                 <div>
-                                                    <h5>Byrom Guittet</h5>
+                                                    <h5>${i.user1.userName}</h5>
                                                     <div class="time">01:35 PM</div>
                                                 </div>
                                             </div>
-                                            <div class="message-wrap">I'm fine, how are you 😃</div>
+                                            <div class="message-wrap">${i.messageContent}</div>
                                         </div>
-
-                                        <div class="message-item outgoing-message">
-                                            <div class="message-user">
-                                                <figure class="avatar">
-                                                    <img src="images/user-1.png" alt="image">
-                                                </figure>
-                                                <div>
-                                                    <h5>Byrom Guittet</h5>
-                                                    <div class="time">01:35 PM<i class="ti-double-check text-info"></i></div>
-                                                </div>
-                                            </div>
-                                            <div class="message-wrap">I want those files for you. I want you to send 1 PDF and 1 image file.</div>
-                                        </div>
-
-                                        <div class="message-item">
-                                            <div class="message-user">
-                                                <figure class="avatar">
-                                                    <img src="images/user-9.png" alt="image">
-                                                </figure>
-                                                <div>
-                                                    <h5>Byrom Guittet</h5>
-                                                    <div class="time">01:35 PM</div>
-                                                </div>
-                                            </div>
-                                            <div class="message-wrap">I've found some cool photos for our travel app.</div>
-                                        </div>
-
-                                        <div class="message-item outgoing-message">
-                                            <div class="message-user">
-                                                <figure class="avatar">
-                                                    <img src="images/user-1.png" alt="image">
-                                                </figure>
-                                                <div>
-                                                    <h5>Byrom Guittet</h5>
-                                                    <div class="time">01:35 PM<i class="ti-double-check text-info"></i></div>
-                                                </div>
-                                            </div>
-                                            <div class="message-wrap">Hey mate! How are things going ?</div>
-                                        </div>
-
-                                        <div class="message-item">
-                                            <div class="message-user">
-                                                <figure class="avatar">
-                                                    <img src="images/user-9.png" alt="image">
-                                                </figure>
-                                                <div>
-                                                    <h5>Byrom Guittet</h5>
-                                                    <div class="time">01:35 PM</div>
-                                                </div>
-                                            </div>
-                                            <figure>
-                                                <img src="images/bb-9.jpg" class="w-25 img-fluid rounded-3" alt="image">
-                                            </figure>
-                                            
+									</c:forEach>
                                         
-                                        </div>
 
-                                        <div class="message-item outgoing-message">
-                                            <div class="message-user">
-                                                <figure class="avatar">
-                                                    <img src="images/user-1.png" alt="image">
-                                                </figure>
-                                                <div>
-                                                    <h5>Byrom Guittet</h5>
-                                                    <div class="time">01:35 PM<i class="ti-double-check text-info"></i></div>
-                                                </div>
-                                            </div>
-                                            <div class="message-wrap" style="margin-bottom: 90px;">Hey mate! How are things going ?</div>
+                                        
 
-                                        </div>
+                                        
+
+                                        
+
+                                        
                                         <div class="clearfix"></div>
 
 
@@ -323,10 +253,10 @@
                                 </div>
                             </div>
                             <div class="chat-bottom dark-bg p-3 shadow-none theme-dark-bg" style="width: 98%;">
-                                <form class="chat-form">
+                                <form action="chat"  method= "post" class="chat-form">
                                     <button class="bg-grey float-left"><i class="ti-microphone text-grey-600"></i></button>
-                                    <div class="form-group"><input type="text" placeholder="Start typing.."></div>          
-                                    <button class="bg-current"><i class="ti-arrow-right text-white"></i></button>
+                                    <div class="form-group"><input type="text" name="messageContent" placeholder="Start typing.."></div>          
+                                    <button type="submit" class="bg-current"><i class="ti-arrow-right text-white"></i></button>
                                 </form>
                             </div> 
                         </div>
@@ -582,8 +512,8 @@
     </div>
 
 
-    <script src="js/plugin.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="<%=request.getContextPath()%>/view/sociala/js/plugin.js"></script>
+    <script src="<%=request.getContextPath()%>/view/sociala/js/scripts.js"></script>
     
 </body>
 
