@@ -41,6 +41,8 @@ public class UserController extends HttpServlet {
 		if (url.contains("register")) {
 			resp.sendRedirect("/ALOHCMUTE/view/sociala/register.jsp");
 		} else if (url.contains("login")) {
+			
+			req.getSession().setAttribute("loginFailed", false);
 			resp.sendRedirect("/ALOHCMUTE/view/sociala/login.jsp");
 		}
 	}
@@ -92,18 +94,23 @@ public class UserController extends HttpServlet {
 				}
 			}
 
-			if (loggedInUser != null) {
-				// Lưu userID vào session
-				HttpSession session = req.getSession();
-				session.setAttribute("userID", loggedInUser.getUserID());
-				session.setAttribute("AvatarURL", loggedInUser.getAvatarURL());
-				session.setAttribute("UserName", loggedInUser.getUserName());
-				session.setAttribute("userEmail", email);
-				
-				resp.sendRedirect("/ALOHCMUTE/home");
-			} else {
-				resp.sendRedirect("/ALOHCMUTE/view/sociala/login.jsp?error=1");
-			}
+				if (loggedInUser != null) {
+					// Lưu userID vào session
+					HttpSession session = req.getSession();
+					session.setAttribute("userID", loggedInUser.getUserID());
+					session.setAttribute("AvatarURL", loggedInUser.getAvatarURL());
+					session.setAttribute("UserName", loggedInUser.getUserName());
+					session.setAttribute("userEmail", email);
+					
+					resp.sendRedirect("/ALOHCMUTE/home");
+				} else {
+					HttpSession session = req.getSession();
+					 
+					session.setAttribute("loginFailed", true);
+		            // Forward to the login page with the attribute
+					 resp.sendRedirect("/ALOHCMUTE/view/sociala/login.jsp");
+					
+				}
 		}
 
 		else if (url.contains("updateuser")) {

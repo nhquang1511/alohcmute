@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,11 +41,9 @@
 				<button class="nav-menu me-0 ms-2"></button>
 
 				<a href="login.jsp"
-					class="header-btn d-none d-lg-block bg-dark fw-500 text-white font-xsss p-3 ms-auto w100 text-center lh-20 rounded-xl"
-					>Login</a> <a
-					href="register.jsp"
-					class="header-btn d-none d-lg-block bg-current fw-500 text-white font-xsss p-3 ms-2 w100 text-center lh-20 rounded-xl"
-					>Register</a>
+					class="header-btn d-none d-lg-block bg-dark fw-500 text-white font-xsss p-3 ms-auto w100 text-center lh-20 rounded-xl">Login</a>
+				<a href="register.jsp"
+					class="header-btn d-none d-lg-block bg-current fw-500 text-white font-xsss p-3 ms-2 w100 text-center lh-20 rounded-xl">Register</a>
 
 			</div>
 
@@ -89,6 +88,10 @@
 									class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0">
 									Login</button>
 							</div>
+							<c:if test="${loginFailed}">
+								<div class="alert alert-danger" role="alert">Incorrect
+									username or password. Please try again.</div>
+							</c:if>
 						</form>
 
 						<div class="col-sm-12 p-0 text-left">
@@ -97,24 +100,7 @@
 								Dont have account <a href="register.jsp" class="fw-700 ms-1">Register</a>
 							</h6>
 						</div>
-						<div class="col-sm-12 p-0 text-center mt-2">
 
-							<h6
-								class="mb-0 d-inline-block bg-white fw-500 font-xsss text-grey-500 mb-3">Or,
-								Sign in with your social account</h6>
-							<div class="form-group mb-1">
-								<a href="#"
-									class="form-control text-left style2-input text-white fw-600 bg-facebook border-0 p-0 mb-2"><img
-									src="images/icon-1.png" alt="icon" class="ms-2 w40 mb-1 me-5">
-									Sign in with Google</a>
-							</div>
-							<div class="form-group mb-1">
-								<a href="#"
-									class="form-control text-left style2-input text-white fw-600 bg-twiiter border-0 p-0 "><img
-									src="images/icon-3.png" alt="icon" class="ms-2 w40 mb-1 me-5">
-									Sign in with Facebook</a>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
