@@ -18,7 +18,7 @@ import service.IFriendshipService;
 import service.IUserService;
 import service.UserServiceImple;
 
-@WebServlet(urlPatterns = {"/home/confirm","/home/addrequest"})
+@WebServlet(urlPatterns = {"/home/confirm","/home/addrequest","/home/delete"})
 public class FriendRequestController extends HttpServlet{
 
 	/**
@@ -67,6 +67,17 @@ public class FriendRequestController extends HttpServlet{
 			fr.setUser2(user2);
 			friendrequestservice.insert(fr);
 			resp.sendRedirect("/ALOHCMUTE/home");
+		}
+		if(url.contains("delete"))
+		{
+			
+			try {
+				friendrequestservice.delete(Integer.parseInt(req.getParameter("requestid")));
+				resp.sendRedirect("/ALOHCMUTE/home");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	@Override

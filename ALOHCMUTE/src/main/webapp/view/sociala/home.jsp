@@ -30,6 +30,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/view/sociala/css/lightbox.css">
 
+
 </head>
 
 <body class="color-theme-blue mont-font">
@@ -514,7 +515,7 @@
 											<a
 												href="home/confirm?userid=${i.user1.userID}&requestid=${i.requestID}"
 												class="p-2 lh-20 w100 bg-primary-gradiant me-2 text-white text-center font-xssss fw-600 ls-1 rounded-xl">Confirm</a>
-											<a href="#"
+											<a href="home/delete?requestid=${i.requestID}"
 												class="p-2 lh-20 w100 bg-grey text-grey-800 text-center font-xssss fw-600 ls-1 rounded-xl">Delete</a>
 										</div>
 									</c:if>
@@ -547,12 +548,12 @@
 													mutual friends</span>
 											</h4>
 											<c:forEach var="i2" items="${listadd}">
-												<c:if test="${i.userID eq i2.user2.userID}">
+												<c:if test="${i.userID eq i2.user2.userID && sessionScope.userID eq i2.user1.userID}">
 													<c:set var="isInList" value="true" />
 												</c:if>
 											</c:forEach>
 											<a href="home/addrequest?userid=${i.userID}"
-												class="btn-round-sm bg-white text-grey-900 ${isInList ? 'feather-minus' : 'feather-plus'}  font-xss ms-auto mt-2""></a>
+												class="btn-round-sm bg-white text-grey-900 ${isInList ? 'spinner-border' : 'feather-plus'}  font-xss ms-auto mt-2""></a>
 										</div>
 									</c:if>
 								</c:forEach>

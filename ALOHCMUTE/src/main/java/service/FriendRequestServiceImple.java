@@ -23,5 +23,10 @@ public class FriendRequestServiceImple implements IFriendRequestService{
 		// TODO Auto-generated method stub
 		dao.insert(fr);
 	}
+	@Override
+	public void delete(int frid) throws Exception {
+		// TODO Auto-generated method stub
+		dao.delete(frid);
+	}
 
 }
