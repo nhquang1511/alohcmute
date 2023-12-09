@@ -14,5 +14,10 @@ public class FriendRequestServiceImple implements IFriendRequestService{
 		// TODO Auto-generated method stub
 		return dao.findAll();
 	}
+	@Override
+	public void update(FriendRequest fr) {
+		// TODO Auto-generated method stub
+		dao.update(fr);
+	}
 
 }

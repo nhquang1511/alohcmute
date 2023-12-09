@@ -16,4 +16,16 @@ public class FriendshipServicImple implements IFriendshipService{
 		return friendshipdao.findAll();
 	}
 
+	@Override
+	public Friendship findById(int fsid) {
+		// TODO Auto-generated method stub
+		return friendshipdao.findById(fsid);
+	}
+
+	@Override
+	public void insert(Friendship fs) {
+		// TODO Auto-generated method stub
+		friendshipdao.insert(fs);
+	}
+
 }
