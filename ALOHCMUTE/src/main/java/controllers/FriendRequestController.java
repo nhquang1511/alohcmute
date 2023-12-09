@@ -18,7 +18,7 @@ import service.IFriendshipService;
 import service.IUserService;
 import service.UserServiceImple;
 
-@WebServlet(urlPatterns = {"/home/confirm"})
+@WebServlet(urlPatterns = {"/home/confirm","/home/addrequest"})
 public class FriendRequestController extends HttpServlet{
 
 	/**
@@ -55,6 +55,17 @@ public class FriendRequestController extends HttpServlet{
 			fr.setUser1(user1);
 			fr.setUser2(user2);
 			friendrequestservice.update(fr);
+			resp.sendRedirect("/ALOHCMUTE/home");
+		}
+		if(url.contains("addrequest"))
+		{
+			FriendRequest fr = new FriendRequest();
+			fr.setIsAccepted(0);
+			User user1 = userservice.findById((Integer)req.getSession().getAttribute("userID"));
+			fr.setUser1(user1);
+			User user2 = userservice.findById(Integer.parseInt(req.getParameter("userid")));
+			fr.setUser2(user2);
+			friendrequestservice.insert(fr);
 			resp.sendRedirect("/ALOHCMUTE/home");
 		}
 	}

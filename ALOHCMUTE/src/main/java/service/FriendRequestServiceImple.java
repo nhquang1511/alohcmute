@@ -1,6 +1,5 @@
 package service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import DAO.FriendRequestDaoImple;
@@ -18,6 +17,11 @@ public class FriendRequestServiceImple implements IFriendRequestService{
 	public void update(FriendRequest fr) {
 		// TODO Auto-generated method stub
 		dao.update(fr);
+	}
+	@Override
+	public void insert(FriendRequest fr) {
+		// TODO Auto-generated method stub
+		dao.insert(fr);
 	}
 
 }

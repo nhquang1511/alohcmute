@@ -7,4 +7,5 @@ import entity.FriendRequest;
 public interface IFriendRequestService {
 	List<FriendRequest>findAll();
 	void update(FriendRequest fr);
+	void insert(FriendRequest fr);
 }	

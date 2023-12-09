@@ -495,26 +495,28 @@
 									<a href="default-member.html"
 										class="fw-600 ms-auto font-xssss text-primary">See all</a>
 								</div>
-								<c:forEach var="i" items="${listfriendrequest}" varStatus="loopStatus">
+								<c:forEach var="i" items="${listfriendrequest}"
+									varStatus="loopStatus">
 									<c:if test="${loopStatus.index < 3}">
-									<div
-										class="card-body d-flex pt-4 ps-4 pe-4 pb-0 border-top-xs bor-0">
-										<figure class="avatar me-3">
-											<img src="${i.user1.avatarURL}" alt="image"
-												class="shadow-sm rounded-circle w45">
-										</figure>
-										<h4 class="fw-700 text-grey-900 font-xssss mt-1">${i.user1.userName}<span
-												class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">12
-												mutual friends</span>
-										</h4>
-									</div>
-									<div
-										class="card-body d-flex align-items-center pt-0 ps-4 pe-4 pb-4">
-										<a href="home/confirm?userid=${i.user1.userID}&requestid=${i.requestID}"
-											class="p-2 lh-20 w100 bg-primary-gradiant me-2 text-white text-center font-xssss fw-600 ls-1 rounded-xl">Confirm</a>
-										<a href="#"
-											class="p-2 lh-20 w100 bg-grey text-grey-800 text-center font-xssss fw-600 ls-1 rounded-xl">Delete</a>
-									</div>
+										<div
+											class="card-body d-flex pt-4 ps-4 pe-4 pb-0 border-top-xs bor-0">
+											<figure class="avatar me-3">
+												<img src="${i.user1.avatarURL}" alt="image"
+													class="shadow-sm rounded-circle w45">
+											</figure>
+											<h4 class="fw-700 text-grey-900 font-xssss mt-1">${i.user1.userName}<span
+													class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">12
+													mutual friends</span>
+											</h4>
+										</div>
+										<div
+											class="card-body d-flex align-items-center pt-0 ps-4 pe-4 pb-4">
+											<a
+												href="home/confirm?userid=${i.user1.userID}&requestid=${i.requestID}"
+												class="p-2 lh-20 w100 bg-primary-gradiant me-2 text-white text-center font-xssss fw-600 ls-1 rounded-xl">Confirm</a>
+											<a href="#"
+												class="p-2 lh-20 w100 bg-grey text-grey-800 text-center font-xssss fw-600 ls-1 rounded-xl">Delete</a>
+										</div>
 									</c:if>
 								</c:forEach>
 
@@ -531,6 +533,7 @@
 										class="fw-600 ms-auto font-xssss text-primary">See all</a>
 								</div>
 								<c:forEach var="i" items="${listConfirm}" varStatus="loopStatus">
+									<c:set var="isInList" value="false" />
 									<c:if test="${loopStatus.index < 3}">
 										<div
 											class="card-body bg-transparent-card d-flex p-3 bg-greylight m-3 rounded-3">
@@ -543,7 +546,13 @@
 													class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">
 													mutual friends</span>
 											</h4>
-											<a href="#" class="btn-round-sm bg-white text-grey-900 feather-plus font-xss ms-auto mt-2"></a>
+											<c:forEach var="i2" items="${listadd}">
+												<c:if test="${i.userID eq i2.user2.userID}">
+													<c:set var="isInList" value="true" />
+												</c:if>
+											</c:forEach>
+											<a href="home/addrequest?userid=${i.userID}"
+												class="btn-round-sm bg-white text-grey-900 ${isInList ? 'feather-minus' : 'feather-plus'}  font-xss ms-auto mt-2""></a>
 										</div>
 									</c:if>
 								</c:forEach>

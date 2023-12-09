@@ -51,4 +51,34 @@ public class FriendRequestDaoImple implements IFriendRequestDao{
 		}
 	}
 
+	@Override
+	public void insert(FriendRequest fr) {
+		// TODO Auto-generated method stub
+		EntityManager enma = JPAConfig.getEntityManager();
+
+		EntityTransaction trans = enma.getTransaction(); // chức năng insert có
+
+		try {
+
+			trans.begin();
+
+			enma.persist(fr);// persist chính là insert đối tượng category vô
+
+			trans.commit();// xác nhận thành công
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			trans.rollback();
+
+			throw e;
+
+		} finally {
+
+			enma.close();
+
+		}
+	}
+
 }

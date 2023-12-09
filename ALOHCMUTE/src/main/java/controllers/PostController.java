@@ -40,6 +40,7 @@ public class PostController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String url = req.getRequestURL().toString();
 		if (url.contains("home")) {
+			listaddfriend(req, resp);
 			findAllConfirmFriend(req, resp);
 			findAllFriendRequest(req, resp);
 			findAllFriend(req, resp);
@@ -53,6 +54,13 @@ public class PostController extends HttpServlet {
 			deletePost(req, resp);
 		}
 
+	}
+
+	private void listaddfriend(HttpServletRequest req, HttpServletResponse resp) {
+		// TODO Auto-generated method stub
+		List<FriendRequest> listfriendrequest = friendrequestservice.findAll();
+		req.setAttribute("listadd", listfriendrequest);
+		
 	}
 
 	private void findAllConfirmFriend(HttpServletRequest req, HttpServletResponse resp) {
