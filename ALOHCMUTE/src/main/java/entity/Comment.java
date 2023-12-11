@@ -13,6 +13,10 @@ import java.util.List;
 @Entity
 @Table(name="Comment")
 @NamedQuery(name="Comment.findAll", query="SELECT c FROM Comment c")
+@NamedQuery(
+	    name = "Comment.findByPostID",
+	    query = "SELECT c FROM Comment c WHERE c.post.postID = :postID"
+	)
 public class Comment implements Serializable {
 	private static final long serialVersionUID = 1L;
 

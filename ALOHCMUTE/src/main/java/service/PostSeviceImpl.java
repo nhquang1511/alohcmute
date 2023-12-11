@@ -1,5 +1,6 @@
 package service;
 
+import entity.Comment;
 import entity.Post;
 
 import java.util.List;
@@ -33,6 +34,18 @@ public class PostSeviceImpl implements IPostService{
 	@Override
 	public List<Post> findAll(){
 		return postDao.findAll();
+	}
+
+	@Override
+	public Post findById(int postID) {
+	
+		return postDao.findByID(postID);
+	}
+
+	@Override
+	public List<Comment> getCommentsForPost(int postID) {
+		
+		return postDao.getCommentsForPost(postID);
 	}
 
 

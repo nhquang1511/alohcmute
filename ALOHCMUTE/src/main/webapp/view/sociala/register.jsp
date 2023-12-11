@@ -104,8 +104,8 @@
 								Already have account <a href="login.jsp" class="fw-700 ms-1">Login</a>
 							</h6>
 							<c:if test="${sessionScope.RegisterFailed==true}">
-								<div class="alert alert-danger" role="alert">Incorrect
-									The email already exists. Please try again.</div>
+								<div class="alert alert-danger" role="alert">Incorrect The
+									email already exists. Please try again.</div>
 							</c:if>
 						</div>
 
@@ -117,8 +117,7 @@
 
 
 
-
-
+	
 	<script src="js/plugin.js"></script>
 	<script src="js/scripts.js"></script>
 
