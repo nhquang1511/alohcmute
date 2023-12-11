@@ -493,7 +493,7 @@
 								<div class="card-body d-flex align-items-center p-4">
 									<h4 class="fw-700 mb-0 font-xssss text-grey-900">Friend
 										Request</h4>
-									<a href="default-member.html"
+									<a href="/ALOHCMUTE/listfriend"
 										class="fw-600 ms-auto font-xssss text-primary">See all</a>
 								</div>
 								<c:forEach var="i" items="${listfriendrequest}"
@@ -530,7 +530,7 @@
 								<div class="card-body d-flex align-items-center p-4 mb-0">
 									<h4 class="fw-700 mb-0 font-xssss text-grey-900">Confirm
 										Friend</h4>
-									<a href="default-member.html"
+									<a href="/ALOHCMUTE/listfriend"
 										class="fw-600 ms-auto font-xssss text-primary">See all</a>
 								</div>
 								<c:forEach var="i" items="${listConfirm}" varStatus="loopStatus">
@@ -566,7 +566,7 @@
 								<div class="card-body d-flex align-items-center p-4">
 									<h4 class="fw-700 mb-0 font-xssss text-grey-900">Suggest
 										Group</h4>
-									<a href="default-group.html"
+									<a href="/ALOHCMUTE/listfriend"
 										class="fw-600 ms-auto font-xssss text-primary">See all</a>
 								</div>
 								<div

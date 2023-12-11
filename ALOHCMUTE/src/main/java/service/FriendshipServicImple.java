@@ -6,6 +6,7 @@ import DAO.FriendshipDaoImple;
 import DAO.IFriendshipDao;
 
 import entity.Friendship;
+import entity.User;
 
 public class FriendshipServicImple implements IFriendshipService{
 	IFriendshipDao friendshipdao = new FriendshipDaoImple();
@@ -26,6 +27,18 @@ public class FriendshipServicImple implements IFriendshipService{
 	public void insert(Friendship fs) {
 		// TODO Auto-generated method stub
 		friendshipdao.insert(fs);
+	}
+
+	@Override
+	public void delete(int fsid) throws Exception {
+		// TODO Auto-generated method stub
+		friendshipdao.delete(fsid);
+	}
+
+	@Override
+	public List<Friendship> findByUsername(int id1,int id2) {
+		// TODO Auto-generated method stub
+		return friendshipdao.findByUsername(id1, id2);
 	}
 
 }

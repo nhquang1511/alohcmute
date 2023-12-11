@@ -40,9 +40,10 @@ public class UserController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String url = req.getRequestURL().toString();
 		if (url.contains("register")) {
+			req.getSession().setAttribute("RegisterFailed",false);
 			resp.sendRedirect("/ALOHCMUTE/view/sociala/register.jsp");
 		} else if (url.contains("login")) {
-			
+			req.getSession().setAttribute("RegisterFailed",false);
 			req.getSession().setAttribute("loginFailed", false);
 			resp.sendRedirect("/ALOHCMUTE/view/sociala/login.jsp");
 		}
@@ -75,7 +76,8 @@ public class UserController extends HttpServlet {
 //				out.println("<p>" + "dang ky thanh cong" + "</p>");
 				resp.sendRedirect("login");
 			}else {
-				resp.sendRedirect("register");
+				req.getSession().setAttribute("RegisterFailed", true);
+				resp.sendRedirect("/ALOHCMUTE/view/sociala/register.jsp");
 				
 			}
 			
