@@ -53,6 +53,15 @@ public class PostSeviceImpl implements IPostService{
 		// TODO Auto-generated method stub
 		return postDao.findbyuserid(userid);
 	}
+	@Override
+	public int count() {
+		return postDao.count();
+	}
+
+	@Override
+	public List<Post> findPostsByUserCommented(int i) {
+		return postDao.findPostsByUserCommented(i);
+	}
 
 
 }

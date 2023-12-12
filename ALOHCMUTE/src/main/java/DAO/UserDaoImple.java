@@ -167,12 +167,13 @@ public class UserDaoImple implements IUserDao{
 	public int count() {
 		EntityManager enma = JPAConfig.getEntityManager();
 
-		String jpql = "SELECT count(c) FROM Category c";
+		String jpql = "SELECT count(c) FROM User c";
 
 		Query query = enma.createQuery(jpql);
 
 		return ((Long) query.getSingleResult()).intValue();
 
 	}
+
 
 }

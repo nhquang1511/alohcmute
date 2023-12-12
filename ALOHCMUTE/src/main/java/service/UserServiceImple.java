@@ -55,5 +55,6 @@ public class UserServiceImple implements IUserService{
 		// TODO Auto-generated method stub
 		return userdao.count();
 	}
+	
 
 }

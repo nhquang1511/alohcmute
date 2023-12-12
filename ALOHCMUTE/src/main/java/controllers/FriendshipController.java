@@ -37,7 +37,9 @@ public class FriendshipController extends HttpServlet{
 
 			// Lấy giá trị từ session
 			Integer userIDInt = (Integer) session.getAttribute("userID");
+			
 			List<User> listfriend = new ArrayList<User>();
+			
 			List<Friendship> list = friendshipservice.findAll();
 			for (Friendship friend : list) {
 				if (friend.getUser1().getUserID() == userIDInt) {
@@ -53,8 +55,6 @@ public class FriendshipController extends HttpServlet{
 			User user1 = userservice.findById(Integer.parseInt(req.getParameter("userid")));
 			User user2 = userservice.findById((Integer) req.getSession().getAttribute("userID"));
 
-			System.out.println("user1: " + user1.getUserID());
-			System.out.println("user2: " + user2.getUserID());
 
 			List<Friendship> list = friendshipservice.findByUsername(user1.getUserID(), user2.getUserID());
 

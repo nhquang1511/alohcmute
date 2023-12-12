@@ -64,7 +64,8 @@
 						<form action="/ALOHCMUTE/register" method="post">
 
 							<div class="form-group icon-input mb-3">
-								<i class="font-sm ti-user text-grey-500 pe-0"></i> <input
+								<i class="font-sm ti-user text-grey-500 pe-0"></i> 
+								<input
 									name="name" type="text"
 									class="style2-input ps-5 form-control text-grey-900 font-xsss fw-600"
 									placeholder="Your Name">

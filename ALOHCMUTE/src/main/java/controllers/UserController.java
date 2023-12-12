@@ -16,12 +16,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import DAO.PostDaoImple;
 import entity.Friendship;
 import entity.PrivateMessage;
 import entity.User;
 import service.FriendshipServicImple;
 import service.IFriendshipService;
+import service.IPostService;
 import service.IUserService;
+import service.PostSeviceImpl;
 import service.UserServiceImple;
 import util.uploadCloud;
 
@@ -34,6 +37,7 @@ public class UserController extends HttpServlet {
 	 */
 	IUserService userService = new UserServiceImple();
 	IFriendshipService friendshipservice = new FriendshipServicImple();
+	IPostService postService = new PostSeviceImpl();
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -57,17 +61,21 @@ public class UserController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String url = req.getRequestURL().toString();
 		if (url.contains("register")) {
+			
 			String email = req.getParameter("email");
+			
+			
 			List<User> userList = userService.findAll();
-			boolean check = false;
+			
+			boolean check = true;
 
 			for (User user : userList) {
 				if (user.getEmail().equals(email)) {
-					check = true;
+					check = false;
 					break;
 				}
 			}
-			if(check==false) {
+			if(check==true) {
 				User user = new User();
 				user.setEmail(req.getParameter("email"));
 				user.setUserName(req.getParameter("name"));
@@ -107,15 +115,37 @@ public class UserController extends HttpServlet {
 					session.setAttribute("AvatarURL", loggedInUser.getAvatarURL());
 					session.setAttribute("UserName", loggedInUser.getUserName());
 					session.setAttribute("userEmail", email);
+					session.setAttribute("admin", loggedInUser.getAdmin());
 					
-					resp.sendRedirect("/ALOHCMUTE/home");
+					if (loggedInUser.getAdmin()!=1)
+					{
+						resp.sendRedirect("/ALOHCMUTE/home");
+					}
+					else 
+						{
+						int allUser = userService.count();
+						int allPost = postService.count();
+						session.setAttribute("allUser", allUser);
+						session.setAttribute("allPost", allPost);
+						
+						PostDaoImple postdaoimpl = new PostDaoImple();
+						for (int month = 1; month <= 12; month++) {
+						    int postCount = postdaoimpl.countByMonth(month);
+						    String attributeName = "thang" + month;
+						    session.setAttribute(attributeName, postCount);
+						}
+						List<Integer> postCountsPerHour = postdaoimpl.countPostsPerHourLast6Hours();
+					
+						for (int hour = 0; hour < postCountsPerHour.size(); hour++) {
+						    String sessionAttribute = "cachDay" + (6 - hour -1) + "Gio"; 
+						    int postCount = postCountsPerHour.get(hour);
+						    session.setAttribute(sessionAttribute, postCount);
+						}
+						resp.sendRedirect("/ALOHCMUTE/view/sociala/Statistic.jsp");
+						
+						}
 				} else {
-					HttpSession session = req.getSession();
-					 
-					session.setAttribute("loginFailed", true);
-		            // Forward to the login page with the attribute
-					 resp.sendRedirect("/ALOHCMUTE/view/sociala/login.jsp");
-					
+					resp.sendRedirect("/ALOHCMUTE/view/sociala/login.jsp?error=1");
 				}
 		}
 

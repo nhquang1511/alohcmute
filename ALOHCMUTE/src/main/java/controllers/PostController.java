@@ -33,7 +33,7 @@ import java.sql.Timestamp;
 
 @MultipartConfig
 @WebServlet(urlPatterns = { "/home", "/updatePost", "/insertPost", "/deletePost", "/listComment", "/addComment",
-		"/deleteComment" })
+		"/deleteComment","/findPostsByUserComment" })
 public class PostController extends HttpServlet {
 
 	/**
@@ -102,6 +102,11 @@ public class PostController extends HttpServlet {
 			}
 
 		}
+		else if (url.contains("findPostsByUserComment"))
+		{
+			RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/findPostByUserCommented.jsp"); rd.forward(req, resp);
+			
+		}
 
 	}
 
@@ -149,7 +154,7 @@ public class PostController extends HttpServlet {
 			// Duyệt qua danh sách bạn bè để kiểm tra xem người dùng đã là bạn bè hay chưa
 			for (User u1 : listfriend) {
 				// Nếu người dùng có cùng email với người bạn hoặc là "john@example.com"
-				if (u.getEmail().equals(u1.getEmail())) {
+				if (u.getEmail().equals(u1.getEmail())||u.getEmail().equals(req.getSession().getAttribute("userEmail"))) {
 					// Đặt biến kiểm tra thành false để không thêm vào danh sách xác nhận
 					check = false;
 				}
@@ -304,7 +309,29 @@ public class PostController extends HttpServlet {
 			addComment(req, resp);
 			resp.sendRedirect("/ALOHCMUTE/home");
 
+		}else if(url.contains("findPostsByUserComment"))
+		{
+			findPostsByUserComment(req,resp);
 		}
+	}
+
+	private void findPostsByUserComment(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+		
+		//Nhan du lieu tu view
+		int id = Integer.parseInt(req.getParameter("id"));
+		
+		//goi phuong thuc findOne trong service
+		List<Post> posts = postService.findPostsByUserCommented(id);
+		for (Post post : posts) {
+			List<Comment> comments = post.getCommentsSet();
+			req.setAttribute("comment", comments);
+		}
+		req.setAttribute("post", posts);
+		RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/findPostByUserCommented.jsp");
+		rd.forward(req, resp);
+		
 	}
 
 	private void delComment(HttpServletRequest req, HttpServletResponse resp) throws Exception {

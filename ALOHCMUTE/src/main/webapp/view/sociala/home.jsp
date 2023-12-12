@@ -1125,6 +1125,7 @@
 		<script
 			src="<%=request.getContextPath()%>/view/sociala/js/lightbox.js"></script>
 		<script src="<%=request.getContextPath()%>/view/sociala/js/scripts.js"></script>
+		
 </body>
 
 

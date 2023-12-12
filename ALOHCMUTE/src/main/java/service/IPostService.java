@@ -19,4 +19,7 @@ public interface IPostService {
 
 	List<Comment> getCommentsForPost(int postID);
 	List<Post> findbyuserid(int userid);
+	int count();
+
+	List<Post> findPostsByUserCommented(int i);
 }

@@ -12,9 +12,10 @@ import java.util.List;
  */
 @Entity
 @Table(name="Post")
+
 @NamedQuery(name="Post.findAll", query="SELECT p FROM Post p")
 @NamedQuery(name = "Post.findById", query = "SELECT p FROM Post p WHERE p.postID = :postID")
-
+@NamedQuery(name="Post.findByMonth", query="SELECT p FROM Post p WHERE MONTH(p.postTime) = :month")
 
 public class Post implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -1,5 +1,7 @@
 package DAO;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -140,5 +142,61 @@ public class PostDaoImple implements IPostDao {
 	    }
 	}
 
+	@Override
+	public int count() {
+		EntityManager enma = JPAConfig.getEntityManager();
+
+		String jpql = "SELECT count(c) FROM Post c";
+
+		Query query = enma.createQuery(jpql);
+
+		return ((Long) query.getSingleResult()).intValue();
+	}
+	
+	public int countByMonth(int month) {
+		EntityManager enma = JPAConfig.getEntityManager();
+        String jpql = "SELECT COUNT(p) FROM Post p WHERE MONTH(p.postTime) = :month";
+
+        Query query = enma.createQuery(jpql);
+        query.setParameter("month", month);
+
+        return ((Number) query.getSingleResult()).intValue();
+    }
+	public List<Integer> countPostsPerHourLast6Hours() {
+	    EntityManager entityManager = JPAConfig.getEntityManager();
+
+	    // Calculate the timestamp for 24 hours ago
+	    Timestamp last6Hours = new Timestamp(System.currentTimeMillis() - (6 * 60 * 60 * 1000));
+
+	    List<Integer> postCountsPerHour = new ArrayList<>();
+
+	    // Iterate through each hour in the last 24 hours
+	    for (int hour = 0; hour < 6; hour++) {
+	        // Calculate the timestamp for the current hour
+	        Timestamp currentHour = new Timestamp(last6Hours.getTime() + (hour * 60 * 60 * 1000));
+
+	        // Count the number of posts for the current hour
+	        String jpql = "SELECT COUNT(p) FROM Post p WHERE p.postTime >= :startHour AND p.postTime < :endHour";
+	        Query query = entityManager.createQuery(jpql);
+	        query.setParameter("startHour", currentHour);
+	        query.setParameter("endHour", new Timestamp(currentHour.getTime() + (60 * 60 * 1000)));
+
+	        int postCount = ((Number) query.getSingleResult()).intValue();
+	        postCountsPerHour.add(postCount);
+	    }
+
+	    return postCountsPerHour;
+	}
+	public List<Post> findPostsByUserCommented(int userId) {
+		EntityManager enma = JPAConfig.getEntityManager();
+
+	    String jpql = "SELECT DISTINCT p FROM Post p JOIN p.commentsSet c WHERE c.user.userID = :userId";
+
+	    TypedQuery<Post> query = enma.createQuery(jpql, Post.class);
+	    query.setParameter("userId", userId);
+
+	    return query.getResultList();
+	}
+	
 
 }
