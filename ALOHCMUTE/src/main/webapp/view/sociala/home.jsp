@@ -81,7 +81,7 @@
 			<a href="default.html"
 				class="p-2 text-center ms-3 menu-icon center-menu-icon"><i
 				class="feather-home font-lg alert-primary btn-round-lg theme-dark-bg text-current "></i></a>
-			
+
 
 			<a href="#" class="p-2 text-center ms-auto menu-icon"
 				id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false"><span
@@ -255,22 +255,37 @@
 				<div class="nav-content">
 
 
+					<div class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1 mb-2 mt-2">
+                        <div class="nav-caption fw-600 font-xssss text-grey-500"><span>New </span>Feeds</div>
+                        <ul class="mb-1 top-content">
+                            <li class="logo d-none d-xl-block d-lg-block"></li>
+                            <li><a href="default.html" class="nav-content-bttn open-font"><i class="feather-tv btn-round-md bg-blue-gradiant me-3"></i><span>Newsfeed</span></a></li>
+                          	
+                            <li><a href="default-group.html" class="nav-content-bttn open-font"><i class="feather-zap btn-round-md bg-mini-gradiant me-3"></i><span>Popular Groups</span></a></li>
+                            <li><a href="user-page.jsp" class="nav-content-bttn open-font"><i class="feather-user btn-round-md bg-primary-gradiant me-3"></i><span>Author Profile </span></a></li>                        
+                        </ul>
+                    </div>
 					<div
-						class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1">
-						<div class="nav-caption fw-600 font-xssss text-grey-500">
-							<span></span> Account
-						</div>
-						<ul class="mb-1">
-							<li class="logo d-none d-xl-block d-lg-block"></li>
-							<li><a href="/ALOHCMUTE/view/sociala/default-settings.jsp"
-								class="nav-content-bttn open-font h-auto pt-2 pb-2"><i
-									class="font-sm feather-settings me-3 text-grey-500"></i><span>Settings</span></a></li>
-							
-							<li><a href="chat?userid=${id}"
-								class="nav-content-bttn open-font h-auto pt-2 pb-2"><i
-									class="font-sm feather-message-square me-3 text-grey-500"></i><span>Chat</span><span
-									class="circle-count bg-warning mt-0">23</span></a></li>
+						class="section full pe-3 ps-4 pt-4 position-relative feed-body">
+						<h4 class="font-xsssss text-grey-500 text-uppercase fw-700 ls-3">CONTACTS</h4>
+
+						<ul class="list-group list-group-flush">
+							<c:forEach var="i" items="${listfriend}">
+								<li
+									class="bg-transparent list-group-item no-icon pe-0 ps-0 pt-2 pb-2 border-0 d-flex align-items-center">
+									<figure class="avatar float-left mb-0 me-2">
+										<img src="${i.avatarURL}" alt="image" class="w35">
+									</figure>
+									<h3 class="fw-700 mb-0 mt-0">
+										<a
+											class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
+											href="#">${i.userName}</a>
+									</h3> <span class="bg-success ms-auto btn-round-xss"></span>
+								</li>
+							</c:forEach>
+
 						</ul>
+
 					</div>
 				</div>
 			</div>
@@ -610,7 +625,8 @@
 															<div class="cmt-right">
 																<div class="cmt-box">
 																	<h2 class="name">
-																		<a href="#" class="fw-700 text-grey-900 font-xssss mt-0 mb-1">${comment.user.userName}</a>
+																		<a href="#"
+																			class="fw-700 text-grey-900 font-xssss mt-0 mb-1">${comment.user.userName}</a>
 																	</h2>
 																	<div class="cmt-content">${comment.content}</div>
 																</div>
@@ -1095,7 +1111,6 @@
 			});
 		</script>
 		<!-- Include jQuery -->
-		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </body>
 
 

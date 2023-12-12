@@ -18,7 +18,7 @@ import service.IFriendshipService;
 import service.IUserService;
 import service.UserServiceImple;
 
-@WebServlet(urlPatterns = { "/listfriend","/deletefriend"})
+@WebServlet(urlPatterns = { "/listfriend","/deletefriend","/searchfriend"})
 public class FriendshipController extends HttpServlet{
 
 	/**
@@ -77,8 +77,26 @@ public class FriendshipController extends HttpServlet{
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		 String url = req.getRequestURL().toString();
+
+	        if (url.contains("searchfriend")) {
+	            String searchName = req.getParameter("searchName");
+	            
+	            if (searchName != null && !searchName.isEmpty()) {
+	                // Gọi phương thức tìm kiếm theo tên từ UserService
+	                List<User> searchResult = userservice.findByUsername(searchName);
+	                
+	                req.setAttribute("listfriend", searchResult);
+	                req.getRequestDispatcher("/view/sociala/default-member.jsp").forward(req, resp);
+	            } else {
+	                // Nếu không có tên để tìm kiếm, chuyển hướng người dùng đến trang listfriend
+	                resp.sendRedirect("listfriend");
+	            }
+	        } else {
+	            // Xử lý các trường hợp khác
+	            super.doPost(req, resp);
+	        }
+	    }
 	}
 	
-}
+

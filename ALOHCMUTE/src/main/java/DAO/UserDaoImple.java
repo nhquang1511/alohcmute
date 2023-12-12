@@ -137,14 +137,17 @@ public class UserDaoImple implements IUserDao{
 	public List<User> findByUsername(String username) {
 	    EntityManager entityManager = JPAConfig.getEntityManager();
 
+	    // Replace "username" with "userName" in the query
 	    String jpql = "SELECT u FROM User u WHERE u.userName LIKE :userName";
 
 	    TypedQuery<User> query = entityManager.createQuery(jpql, User.class);
 
-	    query.setParameter("username", "%" + username + "%");
+	    // Replace "username" with "userName" in the parameter
+	    query.setParameter("userName", "%" + username + "%");
 
 	    return query.getResultList();
 	}
+
 
 
 	@Override

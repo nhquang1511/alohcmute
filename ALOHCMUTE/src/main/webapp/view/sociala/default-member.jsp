@@ -325,11 +325,15 @@
 								class="card shadow-xss w-100 d-block d-flex border-0 p-4 mb-3">
 								<div class="card-body d-flex align-items-center p-0">
 									<h2 class="fw-700 mb-0 mt-0 font-md text-grey-900">Friends</h2>
-									<div class="search-form-2 ms-auto">
+									<form action="searchfriend" method="post"
+										class="search-form-2 ms-auto">
 										<i class="ti-search font-xss"></i> <input type="text"
+											name="searchName"
 											class="form-control text-grey-500 mb-0 bg-greylight theme-dark-bg border-0"
-											placeholder="Search here.">
-									</div>
+											placeholder="Search here."> <input type="submit"
+											value="Search" style="display: none;">
+									</form>
+
 									<a href="#"
 										class="btn-round-md ms-2 bg-greylight theme-dark-bg rounded-3"><i
 										class="feather-filter font-xss text-grey-500"></i></a>

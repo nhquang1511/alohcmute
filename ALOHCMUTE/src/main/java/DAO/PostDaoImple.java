@@ -71,6 +71,25 @@ public class PostDaoImple implements IPostDao {
 
 	@Override
 	public void delete(int postid) throws Exception {
+		EntityManager enma = JPAConfig.getEntityManager();
+		EntityTransaction trans = enma.getTransaction();
+		try {
+			trans.begin();
+			Post post = enma.find(Post.class, postid);
+			if (post !=null) {
+				enma.remove(post);
+			}
+			else {
+				throw new Exception("Không tìm thấy");
+			}
+			trans.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			trans.rollback();
+			throw e;
+		} finally {
+			enma.close();
+		}
 
 	}
 
