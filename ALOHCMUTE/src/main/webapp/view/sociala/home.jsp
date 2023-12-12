@@ -59,7 +59,7 @@
 		<!-- navigation top-->
 		<div class="nav-header bg-white shadow-xs border-0">
 			<div class="nav-top">
-				<a href="index.html"><i
+				<a href="/ALOHCMUTE/home"><i
 					class="feather-zap text-success display1-size me-2 ms-0"></i><span
 					class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">ALOHCMUTE</span>
 				</a> <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"><i
@@ -78,7 +78,7 @@
 						class="bg-grey border-0 lh-32 pt-2 pb-2 ps-5 pe-3 font-xssss fw-500 rounded-xl w350 theme-dark-bg">
 				</div>
 			</form>
-			<a href="default.html"
+			<a href="/ALOHCMUTE/home"
 				class="p-2 text-center ms-3 menu-icon center-menu-icon"><i
 				class="feather-home font-lg alert-primary btn-round-lg theme-dark-bg text-current "></i></a>
 
@@ -255,16 +255,27 @@
 				<div class="nav-content">
 
 
-					<div class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1 mb-2 mt-2">
-                        <div class="nav-caption fw-600 font-xssss text-grey-500"><span>New </span>Feeds</div>
-                        <ul class="mb-1 top-content">
-                            <li class="logo d-none d-xl-block d-lg-block"></li>
-                            <li><a href="default.html" class="nav-content-bttn open-font"><i class="feather-tv btn-round-md bg-blue-gradiant me-3"></i><span>Newsfeed</span></a></li>
-                          	
-                            <li><a href="default-group.html" class="nav-content-bttn open-font"><i class="feather-zap btn-round-md bg-mini-gradiant me-3"></i><span>Popular Groups</span></a></li>
-                            <li><a href="user-page.jsp" class="nav-content-bttn open-font"><i class="feather-user btn-round-md bg-primary-gradiant me-3"></i><span>Author Profile </span></a></li>                        
-                        </ul>
-                    </div>
+					<div
+						class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1 mb-2 mt-2">
+						<div class="nav-caption fw-600 font-xssss text-grey-500">
+							<span>New </span>Feeds
+						</div>
+						<ul class="mb-1 top-content">
+							<li class="logo d-none d-xl-block d-lg-block"></li>
+							<li><a href="chat?userid=${id}"
+								class="nav-content-bttn open-font"><i
+									class="feather-tv btn-round-md bg-blue-gradiant me-3"></i><span>Chat</span></a></li>
+
+							<li><a href="default-group.html"
+								class="nav-content-bttn open-font"><i
+									class="feather-zap btn-round-md bg-mini-gradiant me-3"></i><span>Popular
+										Groups</span></a></li>
+							<li><a href="/ALOHCMUTE/user-page?userid=${sessionScope.userID}"
+								class="nav-content-bttn open-font"><i
+									class="feather-user btn-round-md bg-primary-gradiant me-3"></i><span>Author
+										Profile </span></a></li>
+						</ul>
+					</div>
 					<div
 						class="section full pe-3 ps-4 pt-4 position-relative feed-body">
 						<h4 class="font-xsssss text-grey-500 text-uppercase fw-700 ls-3">CONTACTS</h4>
@@ -278,8 +289,8 @@
 									</figure>
 									<h3 class="fw-700 mb-0 mt-0">
 										<a
-											class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
-											href="#">${i.userName}</a>
+											class="font-xssss text-grey-600 d-block text-dark "
+											href="user-page?userid=${i.userID}">${i.userName}</a>
 									</h3> <span class="bg-success ms-auto btn-round-xss"></span>
 								</li>
 							</c:forEach>
@@ -609,6 +620,7 @@
 											</form>
 										</div>
 
+
 										<c:forEach var="comment"
 											items="${sessionScope.sortedComments}">
 											<!-- Check if the comment belongs to the current post -->
@@ -716,7 +728,7 @@
 								</div>
 								<c:forEach var="i" items="${listConfirm}" varStatus="loopStatus">
 									<c:set var="isInList" value="false" />
-									<c:if test="${loopStatus.index < 3}">
+									<c:if test="${loopStatus.index < 5}">
 										<div
 											class="card-body bg-transparent-card d-flex p-3 bg-greylight m-3 rounded-3">
 											<figure class="avatar me-2 mb-0">
@@ -807,7 +819,7 @@
 									<h3 class="fw-700 mb-0 mt-0">
 										<a
 											class="font-xssss text-grey-600 d-block text-dark model-popup-chat"
-											href="#">${i.userName}</a>
+											href="user-page?userid=${i.userID}">${i.userName}</a>
 									</h3> <span class="bg-success ms-auto btn-round-xss"></span>
 								</li>
 							</c:forEach>
@@ -1019,12 +1031,8 @@
 
 
 
-
-		<script src="<%=request.getContextPath()%>/view/sociala/js/plugin.js"></script>
-
-		<script
-			src="<%=request.getContextPath()%>/view/sociala/js/lightbox.js"></script>
-		<script src="<%=request.getContextPath()%>/view/sociala/js/scripts.js"></script>
+		
+		
 		<!-- Add this script at the end of your HTML body or in a separate JavaScript file -->
 		<script>
 			function showEditPost() {
@@ -1111,6 +1119,12 @@
 			});
 		</script>
 		<!-- Include jQuery -->
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+		<script src="<%=request.getContextPath()%>/view/sociala/js/plugin.js"></script>
+
+		<script
+			src="<%=request.getContextPath()%>/view/sociala/js/lightbox.js"></script>
+		<script src="<%=request.getContextPath()%>/view/sociala/js/scripts.js"></script>
 </body>
 
 

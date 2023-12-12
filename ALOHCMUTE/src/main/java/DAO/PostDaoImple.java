@@ -122,4 +122,23 @@ public class PostDaoImple implements IPostDao {
 
 	}
 
+	@Override
+	public List<Post> findbyuserid(int userId) {
+		EntityManager enma = JPAConfig.getEntityManager();
+	    try {
+	        // Sử dụng EntityManager để tạo truy vấn
+	        TypedQuery<Post> query = enma.createQuery(
+	                "SELECT p FROM Post p WHERE p.user.userID = :userId", Post.class);
+	        
+	        // Thiết lập tham số cho truy vấn
+	        query.setParameter("userId", userId);
+	        
+	        // Thực hiện truy vấn và trả về kết quả
+	        return query.getResultList();
+	    } finally {
+	    	enma.close();
+	    }
+	}
+
+
 }

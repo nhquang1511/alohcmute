@@ -13,5 +13,5 @@ public interface IPostDao {
 	List<Post> findAll();
 	Post findByID(int postID);
 	List<Comment> getCommentsForPost(int postID);
-
+	List<Post> findbyuserid(int userid);
 }

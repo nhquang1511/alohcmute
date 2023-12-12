@@ -34,12 +34,13 @@
 	<div class="main-wrapper">
 
 		<!-- navigation top-->
+		
 		<div class="nav-header bg-white shadow-xs border-0">
 			<div class="nav-top">
-				<a href="index.html"><i
+				<a href="/ALOHCMUTE/home"><i
 					class="feather-zap text-success display1-size me-2 ms-0"></i><span
-					class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala.
-				</span> </a> <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"><i
+					class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">ALOHCMUTE</span>
+				</a> <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"><i
 					class="feather-message-circle text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
 				<a href="default-video.html" class="mob-menu me-2"><i
 					class="feather-video text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
@@ -55,25 +56,13 @@
 						class="bg-grey border-0 lh-32 pt-2 pb-2 ps-5 pe-3 font-xssss fw-500 rounded-xl w350 theme-dark-bg">
 				</div>
 			</form>
-			<a href="default.html"
+			<a href="/ALOHCMUTE/home"
 				class="p-2 text-center ms-3 menu-icon center-menu-icon"><i
 				class="feather-home font-lg alert-primary btn-round-lg theme-dark-bg text-current "></i></a>
-			<a href="default-storie.html"
-				class="p-2 text-center ms-0 menu-icon center-menu-icon"><i
-				class="feather-zap font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
-			<a href="default-video.html"
-				class="p-2 text-center ms-0 menu-icon center-menu-icon"><i
-				class="feather-video font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
-			<a href="default-group.html"
-				class="p-2 text-center ms-0 menu-icon center-menu-icon"><i
-				class="feather-user font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
-			<a href="shop-2.html"
-				class="p-2 text-center ms-0 menu-icon center-menu-icon"><i
-				class="feather-shopping-bag font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+
 
 			<a href="#" class="p-2 text-center ms-auto menu-icon"
-				id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false" data-bs-toggle="dropdown"><span
+				id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false"><span
 				class="dot-count bg-warning"></span><i
 				class="feather-bell font-xl text-current"></i></a>
 			<div
@@ -82,8 +71,9 @@
 
 				<h4 class="fw-700 font-xss mb-4">Notification</h4>
 				<div class="card bg-transparent-card w-100 border-0 ps-5 mb-3">
-					<img src="images/user-8.png" alt="user"
-						class="w40 position-absolute left-0">
+					<img
+						src="<%=request.getContextPath()%>/view/sociala/images/user-8.png"
+						alt="user" class="w40 position-absolute left-0">
 					<h5 class="font-xsss text-grey-900 mb-1 mt-0 fw-700 d-block">
 						Hendrix Stamp <span
 							class="text-grey-400 font-xsssss fw-600 float-right mt-1">
@@ -127,7 +117,8 @@
 						UI Designer is require..</h6>
 				</div>
 			</div>
-			<a href="#" class="p-2 text-center ms-3 menu-icon chat-active-btn"><i
+			<a href="chat?userid=${id}"
+				class="p-2 text-center ms-3 menu-icon chat-active-btn"><i
 				class="feather-message-square font-xl text-current"></i></a>
 			<div
 				class="p-2 text-center ms-3 position-relative dropdown-menu-icon menu-icon cursor-pointer">
@@ -229,8 +220,9 @@
 			</div>
 
 
-			<a href="default-settings.html" class="p-0 ms-3 menu-icon"><img
-				src="images/profile-4.png" alt="user" class="w40 mt--1"></a>
+			<a href="/ALOHCMUTE/view/sociala/default-settings.jsp"
+				class="p-0 ms-3 menu-icon"><img src="${sessionScope.AvatarURL}"
+				alt="user" class="w40 mt--1"></a>
 
 		</div>
 		<!-- navigation top -->

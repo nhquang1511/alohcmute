@@ -29,7 +29,7 @@
         <!-- navigation top-->
         <div class="nav-header bg-white shadow-xs border-0">
 			<div class="nav-top">
-				<a href="index.html"><i
+				<a href="/ALOHCMUTE/home"><i
 					class="feather-zap text-success display1-size me-2 ms-0"></i><span
 					class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">ALOHCMUTE</span>
 				</a> <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"><i
@@ -48,10 +48,10 @@
 						class="bg-grey border-0 lh-32 pt-2 pb-2 ps-5 pe-3 font-xssss fw-500 rounded-xl w350 theme-dark-bg">
 				</div>
 			</form>
-			<a href="default.html"
+			<a href="/ALOHCMUTE/home"
 				class="p-2 text-center ms-3 menu-icon center-menu-icon"><i
 				class="feather-home font-lg alert-primary btn-round-lg theme-dark-bg text-current "></i></a>
-			
+
 
 			<a href="#" class="p-2 text-center ms-auto menu-icon"
 				id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false"><span
@@ -216,8 +216,8 @@
 				class="p-0 ms-3 menu-icon"><img src="${sessionScope.AvatarURL}"
 				alt="user" class="w40 mt--1"></a>
 
-		</div>
-        <!-- navigation top -->
+		</div>       
+		 <!-- navigation top -->
 
         <!-- navigation left -->
         <nav class="navigation scroll-bar">

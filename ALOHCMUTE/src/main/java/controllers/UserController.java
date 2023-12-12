@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -25,14 +26,14 @@ import service.UserServiceImple;
 import util.uploadCloud;
 
 @MultipartConfig
-@WebServlet(urlPatterns = { "/register", "/login", "/updateuser" })
+@WebServlet(urlPatterns = { "/register", "/login", "/updateuser"})
 public class UserController extends HttpServlet {
 
 	/**
 	 * 
 	 */
 	IUserService userService = new UserServiceImple();
-
+	IFriendshipService friendshipservice = new FriendshipServicImple();
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -41,14 +42,15 @@ public class UserController extends HttpServlet {
 		String url = req.getRequestURL().toString();
 		if (url.contains("register")) {
 			req.getSession().setAttribute("RegisterFailed",false);
-//			req.getRequestDispatcher("/view/sociala/register.jsp").forward(req, resp);
 			resp.sendRedirect("/ALOHCMUTE/view/sociala/register.jsp");
 		} else if (url.contains("login")) {
 			req.getSession().setAttribute("RegisterFailed",false);
 			req.getSession().setAttribute("loginFailed", false);
 			resp.sendRedirect("/ALOHCMUTE/view/sociala/login.jsp");
-		}
+		} 
 	}
+
+	
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -73,8 +75,7 @@ public class UserController extends HttpServlet {
 				user.setAvatarURL("https://th.bing.com/th/id/R.910cabc7d55bb965d6c42571a2b7973a?rik=HRpRhGm%2fnmbF8g&pid=ImgRaw&r=0");
 				
 				userService.insert(user);
-//				PrintWriter out = resp.getWriter();
-//				out.println("<p>" + "dang ky thanh cong" + "</p>");
+
 				resp.sendRedirect("login");
 			}else {
 				req.getSession().setAttribute("RegisterFailed", true);
@@ -137,8 +138,6 @@ public class UserController extends HttpServlet {
 			user.setUserName(req.getParameter("name1"));
 			session.setAttribute("UserName", req.getParameter("name1"));
 			userService.update(user);
-//			PrintWriter out = resp.getWriter();
-//			out.println("<p>" + "update thanh cong " + user.getUserName() + "</p>");
 			resp.sendRedirect("/ALOHCMUTE/view/sociala/account-information.jsp");
 		}
 	}

@@ -30,7 +30,7 @@
 				<td>${i.userID}</td>
 				<td>${i.userName}</td>
 				<td>${i.email}</td>
-				<td><img src="${i.avatarURL}" alt="imge"></td>
+				<td>${i.avatarURL}</td>
 				
 				
 				<td> <a href="<c:url value='/admin-deleteUser?id=${i.userID}'/>">Delete</a></td>

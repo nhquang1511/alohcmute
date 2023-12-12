@@ -18,5 +18,5 @@ public interface IPostService {
 	Post findById(int postID);
 
 	List<Comment> getCommentsForPost(int postID);
-
+	List<Post> findbyuserid(int userid);
 }

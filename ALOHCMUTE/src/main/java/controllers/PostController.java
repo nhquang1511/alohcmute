@@ -51,18 +51,24 @@ public class PostController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String url = req.getRequestURL().toString();
 		if (url.contains("home")) {
+			// gui danh sach FriendRequest den file jsp,file jsp de duyet qua danh sach de
+			// check xem user nao dang gui yeu cau ket ban
 			listaddfriend(req, resp);
+			// danh sach Confirm Friend hien thi dnah sach nhung nguoi k phai la ban be
 			findAllConfirmFriend(req, resp);
+			// hien thi danh sach Friend Request
 			findAllFriendRequest(req, resp);
+			// hien thi dnah sach ban be
 			findAllFriend(req, resp);
-			findAll(req, resp);
-RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/home.jsp");
-		rd.forward(req, resp);
+			// hien thi dnah sach post
+			findAllPost(req, resp);
+			RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/home.jsp");
+			rd.forward(req, resp);
 		} else if (url.contains("updatePost")) {
 			updatePost(req, resp);
 		} else if (url.contains("deletePost")) {
 			deletePost(req, resp);
-		}else if (url.contains("listComment")) {
+		} else if (url.contains("listComment")) {
 			try {
 				int postID = Integer.parseInt(req.getParameter("postid"));
 				System.out.println(postID);
@@ -77,7 +83,7 @@ RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/home.jsp");
 				e.printStackTrace();
 				resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error fetching comments");
 			}
-		}else if (url.contains("deleteComment"))
+		} else if (url.contains("deleteComment"))
 
 		{
 
@@ -89,7 +95,7 @@ RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/home.jsp");
 				Collections.sort(comments, Comparator.comparing(Comment::getCommentTime).reversed());
 				req.getSession().setAttribute("sortedComments", comments);
 				resp.sendRedirect("/ALOHCMUTE/home");
-				
+
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -97,64 +103,95 @@ RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/home.jsp");
 
 		}
 
-
 	}
+
 	private void listaddfriend(HttpServletRequest req, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
 		List<FriendRequest> listfriendrequest = friendrequestservice.findAll();
 		req.setAttribute("listadd", listfriendrequest);
-		
+
 	}
-	
+
 	private void findAllConfirmFriend(HttpServletRequest req, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
+		// Lấy danh sách tất cả người dùng từ dịch vụ userService
 		List<User> listuser = userService.findAll();
+
+		// Tạo danh sách mới để lưu trữ người dùng cần xác nhận
 		List<User> listConfirm = new ArrayList<User>();
-		//------list friend---------
+
+		// ------ Danh sách bạn bè ---------
 		HttpSession session = req.getSession();
 
-		// Lấy giá trị từ session
+		// Lấy giá trị ID người dùng từ session
 		Integer userIDInt = (Integer) session.getAttribute("userID");
+
+		// Tạo danh sách mới để lưu trữ bạn bè của người dùng
 		List<User> listfriend = new ArrayList<User>();
+
+		// Lấy tất cả các mối quan hệ bạn bè từ dịch vụ friendshipservice
 		List<Friendship> list = friendshipservice.findAll();
+
+		// Duyệt qua danh sách Friendship để lấy ra danh sách bạn bè của người dùng hiện
+		// tại và thêm vào listfriend
 		for (Friendship friend : list) {
 			if (friend.getUser1().getUserID() == userIDInt) {
 				listfriend.add(friend.getUser2());
 			}
 		}
-		//----------------------------------
-		
-		for(User u:listuser)
-		{
-			boolean check =true;
-			for(User u1: listfriend)
-			{
-				if(u.getEmail().equals(u1.getEmail()) || "john@example.com".equals(u.getEmail()))
-				{
-					check =false;					
+		// ----------------------------------
+
+		// Duyệt qua danh sách tất cả người dùng
+		for (User u : listuser) {
+			// Biến kiểm tra xác định xem người dùng có cần xác nhận hay không
+			boolean check = true;
+
+			// Duyệt qua danh sách bạn bè để kiểm tra xem người dùng đã là bạn bè hay chưa
+			for (User u1 : listfriend) {
+				// Nếu người dùng có cùng email với người bạn hoặc là "john@example.com"
+				if (u.getEmail().equals(u1.getEmail())) {
+					// Đặt biến kiểm tra thành false để không thêm vào danh sách xác nhận
+					check = false;
 				}
 			}
-			if(check!=false)
-			{
+
+			// Nếu biến kiểm tra không bị đặt thành false, thêm người dùng vào danh sách xác
+			// nhận
+			if (check != false) {
 				listConfirm.add(u);
-				System.out.println(u.getEmail());
+
 			}
 		}
+
+		// Đặt danh sách xác nhận vào thuộc tính của request để sử dụng trong JSP hoặc
+		// Servlet khác
 		req.setAttribute("listConfirm", listConfirm);
 	}
-	
+
 	private void findAllFriendRequest(HttpServletRequest req, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
+		// Lấy tất cả yêu cầu kết bạn từ dịch vụ friendrequestservice
 		List<FriendRequest> listfriendrequest = friendrequestservice.findAll();
+
+		// Tạo danh sách mới để lưu trữ các yêu cầu kết bạn chưa được chấp nhận cho
+		// người dùng hiện tại
 		List<FriendRequest> listofuser = new ArrayList<FriendRequest>();
+
+		// Duyệt qua danh sách yêu cầu kết bạn
 		for (FriendRequest f : listfriendrequest) {
+			// Kiểm tra nếu người nhận là người dùng hiện tại và yêu cầu chưa được chấp nhận
+			// (isAccepted = 0)
 			if (f.getUser2().getUserID() == (Integer) req.getSession().getAttribute("userID")
 					&& f.getIsAccepted() == 0) {
+				// Thêm yêu cầu vào danh sách
 				listofuser.add(f);
 			}
-
 		}
+
+		// Đặt danh sách yêu cầu vào thuộc tính của request để sử dụng trong JSP hoặc
+		// Servlet khác
 		req.setAttribute("listfriendrequest", listofuser);
+
 	}
 
 	private void findAllFriend(HttpServletRequest req, HttpServletResponse resp) {
@@ -178,7 +215,7 @@ RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/home.jsp");
 			break;
 		}
 	}
-	
+
 	private void deletePost(HttpServletRequest req, HttpServletResponse resp) {
 
 	}
@@ -209,48 +246,22 @@ RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/home.jsp");
 
 	}
 
-	private void findAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	private void findAllPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Post> listPost = postService.findAll();
 		listPost = listPost.stream().filter(post -> post.getPostTime() != null)
 				.sorted(Comparator.comparing(Post::getPostTime).reversed()).collect(Collectors.toList());
 		req.setAttribute("listpost", listPost);
-		// --------------listfriend----------------
-		HttpSession session = req.getSession();
-
-		// Lấy giá trị từ session
-		Integer userIDInt = (Integer) session.getAttribute("userID");
-		List<User> listfriend = new ArrayList<User>();
-		List<Friendship> list = friendshipservice.findAll();
-		for (Friendship friend : list) {
-			if (friend.getUser1().getUserID() == userIDInt) {
-				listfriend.add(friend.getUser2());
-			}
-		}
-
-		req.setAttribute("listfriend", listfriend);
-		for (User user : listfriend) {
-			int id = user.getUserID();
-			req.setAttribute("id", id);
-			break;
-		}
-		// -------------------------------------------
-		
-//		for (User element : listfriend) {
-//			System.out.println(element.getAvatarURL());
-//			System.out.println(element.getEmail());
-//		}
 
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
 		String url = req.getRequestURL().toString();
 		if (url.contains("insertPost")) {
 
 			insertPost(req, resp);
-			req.getRequestDispatcher("home").forward(req, resp);
+			resp.sendRedirect("/ALOHCMUTE/home");
 		} else if (url.contains("updatePost")) {
 			// -------------------------------------lay anh tu form--------------
 			Part filePart = req.getPart("imageVideoURL");
@@ -293,7 +304,7 @@ RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/home.jsp");
 			addComment(req, resp);
 			resp.sendRedirect("/ALOHCMUTE/home");
 
-		} 
+		}
 	}
 
 	private void delComment(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -303,7 +314,7 @@ RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/home.jsp");
 		commentService.delete(commentID);
 		resp.getWriter().write("Comment deleted successfully");
 		resp.sendRedirect("/ALOHCMUTE/home");
-		
+
 	}
 
 	private void addComment(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -323,11 +334,11 @@ RequestDispatcher rd = req.getRequestDispatcher("/view/sociala/home.jsp");
 		cmt.setPost(post);
 		commentService.insert(cmt);
 		resp.getWriter().write("Comment added successfully");
-		
+
 		List<Comment> comments = commentService.findByID(postID);
 		// req.getSession().setAttribute("comments", comments);
 		Collections.sort(comments, Comparator.comparing(Comment::getCommentTime).reversed());
-		req.getSession().setAttribute("sortedComments", comments);	
+		req.getSession().setAttribute("sortedComments", comments);
 
 	}
 }

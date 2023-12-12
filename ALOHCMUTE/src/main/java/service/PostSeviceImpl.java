@@ -48,5 +48,11 @@ public class PostSeviceImpl implements IPostService{
 		return postDao.getCommentsForPost(postID);
 	}
 
+	@Override
+	public List<Post> findbyuserid(int userid) {
+		// TODO Auto-generated method stub
+		return postDao.findbyuserid(userid);
+	}
+
 
 }
