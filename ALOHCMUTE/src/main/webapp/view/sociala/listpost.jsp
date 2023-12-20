@@ -5,21 +5,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 	<c:if test="${not empty message }">${message }</c:if>
 	<c:if test="${not empty error }">${error }</c:if>
-	<table border="1" style="width: 100%">
-
+	
+	<div class="container mt-3">
+	 <table class="table table-bordered">
+	
 		<thead>
+		<tr>
 			<th>PostID</th>
 			<th>Content</th>
-			<th>PostTime</th>
-			<th>ImageVideoURL</th>
-			<th>Likes</th>
-			<th>Comments</th>
+			<th>Thời gian</th>
+			<th>Ảnh</th>
+			<th>Like</th>
+			<th>Comment</th>
 			<th>UserID</th>
-
+		</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="i" items="${listpost}">
@@ -32,12 +40,13 @@
 					<td>${i.comments}</td>
 					<td>${i.user.userID}</td>
 					<td>
-					<td><a href="<c:url value='/admin-deletePost?id=${i.postID}'/>">Delete</a>||
+					<td><a
+						href="<c:url value='/admin-deletePost?id=${i.postID}'/>">Delete</a>||
 					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-
+</div>
 </body>
 </html>

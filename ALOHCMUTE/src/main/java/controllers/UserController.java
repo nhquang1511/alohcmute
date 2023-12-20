@@ -46,11 +46,11 @@ public class UserController extends HttpServlet {
 		String url = req.getRequestURL().toString();
 		if (url.contains("register")) {
 			req.getSession().setAttribute("RegisterFailed",false);
-			resp.sendRedirect("/ALOHCMUTE/view/sociala/register.jsp");
+			req.getRequestDispatcher("/view/sociala/register.jsp").forward(req, resp);
 		} else if (url.contains("login")) {
 			req.getSession().setAttribute("RegisterFailed",false);
 			req.getSession().setAttribute("loginFailed", false);
-			resp.sendRedirect("/ALOHCMUTE/view/sociala/login.jsp");
+			req.getRequestDispatcher("/view/sociala/login.jsp").forward(req, resp);
 		} 
 	}
 

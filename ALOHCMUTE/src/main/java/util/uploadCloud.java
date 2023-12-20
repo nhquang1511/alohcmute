@@ -22,7 +22,7 @@ public class uploadCloud {
                 "api_secret", "lb8EfjswYlyTT2wc0n4NZzO2eAA"
         ));
 
-        // Đường dẫn đến file ảnh bạn muốn upload
+        
         Map<String, Object> params = ObjectUtils.asMap(
             "use_filename", true,
             "unique_filename", false,
